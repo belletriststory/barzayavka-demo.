@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="БарЗаявка 2.0 — исследовательский мобильный UX-прототип закупок для бара с учебными данными.">
+  <title>БарЗаявка 2.0 · UX Alpha</title>
+  <style>
+:root{--bg:#f7f8f5;--paper:#fff;--ink:#1c2b27;--muted:#708079;--line:#e3e9e4;--accent:#146b54;--accent-hover:#115943;--soft:#e7f2ed;--warm:#fff7e9;--warn:#985d1c;--danger:#ae4949;--shadow:0 12px 36px rgba(27,54,40,.055);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);font-synthesis:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}a{color:inherit;text-decoration:none}.hidden{display:none!important}.shell{max-width:840px;margin:auto;min-height:100vh;padding:0 20px 24px}.topbar{height:76px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:25px;font-weight:800;letter-spacing:-1.3px;display:flex;align-items:center;gap:10px}.brand-symbol{display:grid;place-items:center;width:32px;height:32px;color:#fff;background:var(--accent);border-radius:9px;font-size:24px;font-weight:400}.brand-light{font-weight:450}.head-right{display:flex;align-items:center;gap:12px}.alpha{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--accent);border:1px solid #bfd9cc;padding:8px 9px;border-radius:8px}.icon-btn{border:1px solid var(--line);background:#fff;border-radius:11px;width:38px;height:38px;font-size:18px;color:var(--ink)}.menu{position:relative;display:flex;flex-wrap:wrap;gap:5px;padding:9px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;box-shadow:var(--shadow)}.menu button{border:none;background:transparent;color:var(--ink);text-align:left;padding:12px;border-radius:8px}.menu button:hover{background:var(--soft)}.demo-banner{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;line-height:1.6;color:#686857;background:#fff9ed;padding:10px 13px;border:1px solid #f0e4c7;border-radius:12px;margin-bottom:26px}.demo-banner strong{color:#5e4a26}.demo-dot{display:inline-block;width:7px;height:7px;background:#d9ac53;border-radius:100%}main{max-width:720px;margin:auto;min-height:60vh}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1.5px;font-weight:850;text-transform:uppercase;margin:0 0 12px}.hero{padding:23px 0 20px}h1{font-size:clamp(34px,6vw,50px);line-height:1.12;letter-spacing:-1.8px;margin:0 0 13px;font-weight:750}h2{font-size:25px;line-height:1.15;letter-spacing:-.6px;margin:0 0 12px}h3{font-size:17px;line-height:1.3;margin:0}p{line-height:1.6;margin:0 0 13px}.lead{color:var(--muted);font-size:17px;max-width:560px}.muted{color:var(--muted)}.tiny{font-size:12px;color:var(--muted)}.card{border-radius:17px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);padding:21px;margin:14px 0}.card-flat{box-shadow:none}.inset{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fbfcfa}.warm{background:var(--warm);border-color:#f0e5ce}.soft{background:var(--soft);border-color:#d5e9df}.row{display:flex;justify-content:space-between;align-items:center;gap:14px}.row-top{align-items:flex-start}.stack{display:flex;flex-direction:column;gap:12px}.gap-sm{gap:7px}.space{height:16px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;min-height:48px;border:1px solid transparent;border-radius:12px;font-weight:700;text-align:center;line-height:1.3;transition:background .15s,transform .15s}.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-hover)}.btn-secondary{background:var(--soft);color:var(--accent)}.btn-outline{border-color:var(--line);background:white;color:var(--ink)}.btn-quiet{background:transparent;color:var(--accent);padding:9px 4px;min-height:36px}.btn-wide{width:100%}.btn-small{font-size:13px;min-height:37px;padding:8px 11px}.btn:active{transform:translateY(1px)}.link-btn{background:transparent;border:0;padding:6px 0;color:var(--accent);font-weight:650;text-align:left}.field-label{display:block;font-size:13px;font-weight:720;color:#4b6056;margin:0 0 8px}.field,textarea,select{width:100%;border:1.5px solid #dce5df;border-radius:12px;background:#fff;outline:0;color:var(--ink);padding:12px 13px;min-height:46px;transition:border-color .15s,box-shadow .15s}textarea{resize:vertical;line-height:1.7;min-height:158px;font-size:16px}input{font-size:16px}.field:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(20,107,84,.11)}.chiprow{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);border-radius:99px;background:#fff;padding:8px 12px;font-size:13px;color:#426255}.step-title{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#71867b;font-weight:800;margin-bottom:12px}.metric{font-size:35px;font-weight:800;letter-spacing:-1px;font-variant-numeric:tabular-nums}.metric-small{font-size:23px;font-weight:750;font-variant-numeric:tabular-nums}.supplier-row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.supplier-row:last-child{border-bottom:0}.separate{border-top:1px solid var(--line);margin:16px 0}.pill{border-radius:20px;padding:5px 9px;background:#edf3ef;color:#35664f;font-size:11px;font-weight:750;white-space:nowrap}.pill-warn{background:#fff3d9;color:#9d6516}.pill-missing{background:#fff0ef;color:#a54646}.offer{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;text-align:left;width:100%;display:block}.offer:hover,.offer:focus{border-color:#7ab69b;background:#f5faf7}.offer-title{font-size:15px;font-weight:720}.offer-meta{font-size:12px;color:var(--muted);margin-top:6px}.choice-icon{font-size:21px;color:var(--accent)}.label-quiet{font-size:12px;color:var(--muted);display:block;margin-bottom:4px}.progress{height:5px;border-radius:20px;background:#e3eae5;overflow:hidden}.progress>div{height:100%;background:var(--accent)}.product-line{padding:12px 0;border-bottom:1px solid var(--line)}.product-line:last-child{border-bottom:0}.product-line .name{font-weight:700;font-size:14px}.detail{color:var(--muted);font-size:12px;margin-top:3px}.split-actions{display:flex;gap:8px;flex-wrap:wrap}.split-actions>*{flex:1}.details-toggle{color:var(--accent);cursor:pointer;font-weight:600;padding:9px 0;font-size:13px}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}.item-count{font-size:12px;font-weight:650;color:var(--muted)}.empty-icon{width:44px;height:44px;background:var(--soft);color:var(--accent);display:grid;place-items:center;border-radius:14px;margin-bottom:15px;font-size:20px}.footer{font-size:11px;color:#95a099;text-align:center;border-top:1px solid var(--line);padding:24px 0 16px;line-height:1.6;margin-top:55px}.toast{z-index:50;position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,100px);background:#20392f;color:#fff;border-radius:12px;padding:12px 18px;font-size:13px;max-width:90vw;transition:transform .2s ease;box-shadow:0 16px 35px #0002}.toast.show{transform:translate(-50%,0)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.inventory-row{display:grid;grid-template-columns:minmax(0,1fr) 104px 82px;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.inventory-row:last-child{border:0}.inventory-row input{max-width:100%;min-width:0}.inventory-row .field{padding:10px 7px;font-size:16px}.inventory-top{display:grid;grid-template-columns:minmax(0,1fr) 104px 82px;gap:9px;color:var(--muted);font-size:11px;font-weight:650;margin-bottom:8px}.note{background:#f5f8f4;border:1px solid #e4eee7;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5}.message-text{font-size:14px;line-height:1.65;white-space:pre-wrap;word-break:break-word;font-family:inherit;background:#f9fbf8;border-radius:10px;border:1px solid #e5ede6;padding:14px;max-height:320px;overflow:auto}.checkboxline{display:flex;align-items:center;gap:9px;font-size:14px}.checkboxline input{width:18px;height:18px;accent-color:var(--accent)}.small-input{max-width:110px}.helper-steps{display:flex;gap:9px;align-items:center;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:20px}.helper-steps b{color:var(--accent)}.history-item{padding:14px 0;border-bottom:1px solid var(--line)}.history-item:last-child{border:0}.back{background:transparent;border:none;color:var(--accent);padding:5px 0 18px;font-weight:700}.visually-hidden{position:absolute!important;clip:rect(0,0,0,0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}.alert{color:var(--danger);font-size:13px;font-weight:600;padding-top:6px}::selection{background:#cfebdc}
+@media(max-width:550px){.shell{padding:0 16px 14px}.topbar{height:66px}.brand{font-size:22px}.demo-banner{margin-bottom:13px}.hero{padding:17px 0 15px}.card{padding:17px;margin:11px 0}h1{font-size:37px}h2{font-size:23px}.metric{font-size:32px}.grid-2{grid-template-columns:1fr 1fr;gap:8px}.split-actions{flex-direction:column}.inventory-row,.inventory-top{grid-template-columns:minmax(0,1fr) 70px 62px;gap:6px}.inventory-row .field{padding:10px 4px;text-align:center}.footer{margin-top:30px}.menu{flex-direction:column}.offer-meta{line-height:1.45}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+  </style>
+
+
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a href="#" id="brand-link" class="brand" aria-label="БарЗаявка, на главную"><span class="brand-symbol" aria-hidden="true">▥</span><span>бар<span class="brand-light">заявка</span></span></a>
+      <div class="head-right"><span class="alpha">UX ALPHA</span><button class="icon-btn" id="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button></div>
+    </header>
+    <nav class="menu hidden" id="side-menu" aria-label="Навигация">
+      <button data-action="home">Главная</button><button data-action="new">Новая закупка</button><button data-action="history">История и повтор</button><button data-action="sources">Прайсы</button><button data-action="reset">Сбросить демо</button>
+    </nav>
+    <div class="demo-banner"><span class="demo-dot"></span><strong>Учебный прототип</strong><span>Товары и цены вымышленные. AI и загрузка Excel пока не подключены.</span></div>
+    <main id="app" aria-live="polite"></main>
+    <footer class="footer">БарЗаявка 2.0 · Проверяем удобство, не отправляем настоящие заказы.</footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+/* Вымышленные учебные предложения и цены, не коммерческие прайсы. */
+window.BAR_DEMO = Object.freeze({
+  sources: [
+    {id:'a',name:'Учебный поставщик А',count:5},
+    {id:'b',name:'Учебный поставщик Б',count:7}
+  ],
+  offers: [
+    {id:'vodka-a',supplier:'a',name:'Водка Северная 0,5 л',category:'vodka',brand:'северная',volume:0.5,unit:'bottle',price:290,multiple:1,min:1},
+    {id:'vodka-b',supplier:'b',name:'Водка Берёзовая 1 л',category:'vodka',brand:'березовая',volume:1,unit:'bottle',price:625,multiple:1,min:1},
+    {id:'vodka-c',supplier:'b',name:'Водка Северная 0,5 л',category:'vodka',brand:'северная',volume:0.5,unit:'bottle',price:305,multiple:1,min:1},
+    {id:'wine-dry-a',supplier:'a',name:'Шато Тамань Белое сухое 0,75 л',category:'chateau',type:'dry',volume:0.75,unit:'bottle',price:635,multiple:1,min:1},
+    {id:'wine-dry-b',supplier:'b',name:'Шато Тамань Белое сухое 0,75 л',category:'chateau',type:'dry',volume:0.75,unit:'bottle',price:650,multiple:1,min:1},
+    {id:'wine-sweet',supplier:'b',name:'Шато Тамань Белое полусладкое 0,75 л',category:'chateau',type:'semisweet',volume:0.75,unit:'bottle',price:620,multiple:1,min:1},
+    {id:'wine-brut',supplier:'a',name:'Шато Тамань Игристое белое брют 0,75 л',category:'chateau',type:'sparkling',volume:0.75,unit:'bottle',price:810,multiple:1,min:1},
+    {id:'gold-small',supplier:'b',name:'Золотая Балка Брют 0,2 л',category:'gold',type:'sparkling',volume:0.2,unit:'bottle',price:260,multiple:1,min:1},
+    {id:'gold-regular',supplier:'a',name:'Золотая Балка Брют 0,75 л',category:'gold',type:'sparkling',volume:0.75,unit:'bottle',price:890,multiple:6,min:6},
+    {id:'syrup',supplier:'b',name:'Сироп Monin Ваниль 1 л',category:'syrup',volume:1,unit:'bottle',price:950,multiple:1,min:1},
+    {id:'napkins',supplier:'a',name:'Салфетки белые, пачка 100 шт.',category:'napkins',volume:100,unit:'pack',price:150,multiple:1,min:1},
+    {id:'water',supplier:'b',name:'Вода негазированная 0,5 л',category:'water',volume:0.5,unit:'bottle',price:55,multiple:12,min:12}
+  ],
+  inventory: [
+    {id:'vodka',label:'Водка для коктейлей',target:12,unit:'л',request:'Водка для коктейлей'},
+    {id:'wine',label:'Шато Тамань белое сухое',target:12,unit:'бут.',request:'Шато Тамань белое сухое'},
+    {id:'syrup',label:'Сироп ванильный',target:5,unit:'л',request:'Сироп ванильный'},
+    {id:'napkins',label:'Салфетки',target:400,unit:'шт.',request:'Салфетки'}
+  ],
+  examples: [
+    {title:'Быстрая заявка',value:'Водка для коктейлей — 10 л\nШато Тамань белое — 6 бут.\nСироп ванильный — 3 л'},
+    {title:'Уточнение объёма',value:'Золотая Балка — 10 бут.'},
+    {title:'Товар не найден',value:'Русский Стандарт — 10 л\nСалфетки — 200 шт.'},
+    {title:'Минимальная партия',value:'Золотая Балка брют 0,75 л — 2 бут.'}
+  ]
+});
+
+</script>
+<script>
+/* БарЗаявка 2.0 UX Alpha — исключительно учебный браузерный прототип.
+ * Нет AI, импорта XLSX, отправки сообщений, авторизации или реальных цен.
+ */
+(() => {
+ 'use strict';
+ const D=window.BAR_DEMO, KEY='barzayavka-ux-alpha-v1';
+ const $=id=>document.getElementById(id);
+ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const rub=n=>new Intl.NumberFormat('ru-RU',{style:'currency',currency:'RUB',maximumFractionDigits:0}).format(n);
+ const qty=n=>Number(n).toLocaleString('ru-RU',{maximumFractionDigits:2});
+ const base={view:'home',mode:'list',demoSources:false,text:'',inventory:{},choices:{},surplus:{},excluded:{},history:[],draftInput:'',delivery:{date:'',window:'',address:'',comment:'',includePrices:false},showPrices:false};
+ let state;
+ try {state={...base,...JSON.parse(localStorage.getItem(KEY)||'{}')};}catch(e){state={...base};}
+ state.delivery={...base.delivery,...state.delivery};
+ state.inventory=state.inventory||{};state.choices=state.choices||{};state.surplus=state.surplus||{};state.excluded=state.excluded||{};state.history=Array.isArray(state.history)?state.history.slice(0,12):[];
+ const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}};
+ let toastTimer=null;
+ function toast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3100);}
+ const btn=(label,action,cls='btn-outline',extra='')=>`<button type="button" class="btn ${cls}" data-action="${action}" ${extra}>${escape(label)}</button>`;
+ const stepBack=(target='work')=>`<button class="back" data-action="${target}">← Назад</button>`;
+ function nav(view){state.view=view;persist();render();window.scrollTo({top:0,behavior:'auto'});}
+ function getSupplier(id){return D.sources.find(s=>s.id===id)?.name||'Учебный поставщик';}
+ const normalize=s=>String(s??'').toLowerCase().replaceAll('ё','е').replaceAll('—','-').replaceAll('–','-');
+ function detectCategory(name){const t=normalize(name);
+   if(/русск.*стандарт|russian standard/.test(t))return 'absent';
+   if(/шато\s*таман|chateau\s*taman/.test(t))return 'chateau';
+   if(/золот.*балк/.test(t))return 'gold';
+   if(/monin|сироп|ванил/.test(t))return 'syrup';
+   if(/салфет/.test(t))return 'napkins';
+   if(/водк|vodka/.test(t))return 'vodka';
+   if(/вода|негаз/.test(t))return 'water';
+   return 'unknown';
+ }
+ function parseLine(line,index){const raw=line.trim();if(!raw)return null;
+   // The last quantity+unit is considered the requested quantity (packaging may precede it).
+   const all=[...normalize(raw).matchAll(/(\d+(?:[.,]\d+)?)\s*(бут(?:ыл(?:ок|ки|ка|ку|ок)?|\.)?|бут\.|л(?:итр(?:ов|а|ы)?)?(?=$|[\s.,;])|шт(?:ук|\.)?|кг(?=$|[\s.,;])|уп(?:ак(?:ов(?:ок|ки|ка))?|\.)?)/g)];
+   if(!all.length)return {id:index,raw,name:raw,invalid:'Укажи количество и единицу — например, 6 бут. или 10 л'};
+   const last=all[all.length-1],n=Number(last[1].replace(',','.'));let unit=/^бут/.test(last[2])?'bottle':/^шт/.test(last[2])?'piece':/^уп/.test(last[2])?'pack':/^кг/.test(last[2])?'kg':'liter';
+   let name=raw.slice(0,last.index).replace(/[\s\-–—:,;]+$/,'').trim();
+   if(!name){return {id:index,raw,name:raw,invalid:'Не указано название товара'};}
+   if(!Number.isFinite(n)||n<=0){return {id:index,raw,name,invalid:'Количество должно быть больше нуля'};}
+   const category=detectCategory(name),text=normalize(name);
+   const requestedVolume=[...text.matchAll(/\b(0[.,](?:2|5|7|75)|1(?:[.,]0)?)\s*л(?=$|[\s.,;])/g)].map(m=>Number(m[1].replace(',','.'))).pop()||null;
+   let type=null;
+   if(/полуслад/.test(text))type='semisweet';else if(/игрист|брют|brut/.test(text))type='sparkling';else if(/(?:^|\s)сух/.test(text))type='dry';
+   const brand=/северн/.test(text)?'северная':/березов|берёзов/.test(name.toLowerCase())?'березовая':null;
+   return {id:index,raw,name,n,unit,category,requestedVolume,type,brand,cheap:/дешев|выгод|эконом/.test(text)};
+ }
+ function sourceLines(){
+   if(state.mode==='list') return state.text.split(/[\n;]+/).map((s,i)=>parseLine(s,i)).filter(Boolean);
+   const items=[];D.inventory.forEach((it,i)=>{
+      const rec=state.inventory[it.id]||{};
+      if(rec.skip)return;
+      if(rec.current===''||rec.current==null){items.push({id:i,raw:it.label,name:it.label,missingStock:true});return;}
+      const current=Number(rec.current),inTransit=Number(rec.inTransit||0);
+      if(!Number.isFinite(current)||current<0||!Number.isFinite(inTransit)||inTransit<0){items.push({id:i,raw:it.label,name:it.label,invalid:'Остаток и товар в пути должны быть числами от нуля'});return;}
+      const n=Math.max(0,it.target-current-inTransit);
+      if(n>0){items.push(parseLine(`${it.request} — ${qty(n)} ${it.unit}`,i));}
+   });
+   return items;
+ }
+ function selectPool(item){const offers=D.offers.filter(o=>o.category===item.category);
+   if(item.category==='chateau' && item.type)return offers.filter(o=>o.type===item.type);
+   if(item.category==='gold'&&item.requestedVolume)return offers.filter(o=>o.volume===item.requestedVolume);
+   if(item.category==='vodka'&&item.brand)return offers.filter(o=>o.brand===item.brand);
+   return offers;
+ }
+ function groupsForItem(item){const pool=selectPool(item);const groups=new Map();
+   for(const o of pool){const k=item.category==='chateau'?o.type:item.category==='gold'?String(o.volume):item.category==='vodka'?`${o.brand}_${o.volume}`:o.category;
+     if(!groups.has(k))groups.set(k,[]);groups.get(k).push(o);
+   }
+   return groups;
+ }
+ function requiredUnits(item,o){
+   if(item.unit==='liter'){if(!o.volume || o.unit!=='bottle')return null;return Math.ceil((item.n-1e-9)/o.volume);}
+   if(item.unit==='bottle'){if(o.unit!=='bottle')return null;return item.n;}
+   if(item.unit==='piece' && o.category==='napkins')return Math.ceil(item.n/o.volume);
+   if(item.unit==='piece' && o.unit==='bottle')return item.n;
+   if(item.unit==='pack'&&o.unit==='pack')return item.n;
+   return null;
+ }
+ function orderOffer(item,o){const needed=requiredUnits(item,o);if(needed==null)return null;
+   const count=Math.max(o.min||1,Math.ceil(needed/(o.multiple||1))*(o.multiple||1));return {o,needed,count,cost:count*o.price,over:count>needed};
+ }
+ function getBestOffer(item,pool){const candidates=pool.map(o=>orderOffer(item,o)).filter(Boolean);
+   return candidates.sort((a,b)=>a.cost-b.cost||a.count-b.count)[0]||null;
+ }
+ function scenario(){
+   const lines=sourceLines(),ready=[],missing=[],questions=[];
+   for(const item of lines){
+     if(item.invalid){missing.push({item,reason:item.invalid});continue;}
+     if(item.missingStock){missing.push({item,reason:'Сегодняшний остаток не указан'});continue;}
+     if(state.excluded[item.id]){missing.push({item,reason:'Позиция исключена из этой закупки'});continue;}
+     const pool=selectPool(item);
+     if(!pool.length){missing.push({item,reason:'Не найдено в учебных предложениях'});continue;}
+     let eligible=pool;
+     const groups=groupsForItem(item);
+     if(groups.size>1){
+       let choice=state.choices[item.id];
+       if(!choice && item.cheap && item.category==='vodka'){const opts=[...groups.entries()].map(([k,v])=>({key:k,cost:getBestOffer(item,v)?.cost??Infinity})).sort((a,b)=>a.cost-b.cost);choice=opts[0]?.key;}
+       if(!choice || !groups.has(choice)){
+         questions.push({kind:'choice',item,groups});continue;
+       }
+       eligible=groups.get(choice);
+     }
+     const selected=getBestOffer(item,eligible);
+     if(!selected){missing.push({item,reason:'Нет предложения с подходящей единицей учёта'});continue;}
+     if(selected.over && !state.surplus[item.id]){
+       questions.push({kind:'surplus',item,selected});continue;
+     }
+     ready.push({item,...selected});
+   }
+   const suppliers=new Map();
+   for(const r of ready){const k=r.o.supplier;if(!suppliers.has(k))suppliers.set(k,[]);suppliers.get(k).push(r);}
+   return {lines,ready,missing,questions,total:ready.reduce((s,r)=>s+r.cost,0),suppliers};
+ }
+ function viewHome(){
+   const hasText=state.text.trim().length>0,hasHistory=state.history.length>0;
+   return `<section class="hero"><p class="eyebrow">Твой помощник по закупкам</p><h1>Закупка без<br>лишней работы.</h1><p class="lead">Напиши, что нужно бару. Поможем собрать понятную заявку и сообщения поставщикам.</p></section>
+   <div class="card stack"><h3>${hasText?'Продолжить начатое':'Новая закупка'}</h3><p class="muted">${hasText?'Черновик сохранился. Продолжай с того же места.':'Вставь список товаров или посчитай потребность по остаткам.'}</p>${btn(hasText?'Продолжить закупку →':'Собрать закупку →','work','btn-primary btn-wide')}${hasHistory?btn('Повторить предыдущую','repeat','btn-outline btn-wide'):''}</div>
+   <div class="card stack"><div class="row"><div><h3>Учебные прайсы</h3><p class="tiny">${state.demoSources?'2 подключено · вымышленные цены':'Не подключены'}</p></div><span class="pill">Демо</span></div><p class="muted">Для этого прототипа используется небольшой заранее подготовленный каталог. Твои Excel-файлы пока не обрабатываются.</p>${btn(state.demoSources?'Посмотреть учебные предложения':'Подключить учебные прайсы','sources','btn-secondary')}</div>
+   <p class="tiny">Никакой регистрации. Данные черновика сохраняются только в этом браузере.</p>`;
+ }
+ function viewSources(){return `${stepBack('home')}<p class="eyebrow">Подключение прайсов</p><h2>Источники предложений</h2><p class="muted">В этой Alpha мы проверяем удобство работы с заказом. Импорт настоящих Excel появится после UX-проверок.</p><div class="card stack">${D.sources.map(s=>`<div class="row"><div><h3>${escape(s.name)}</h3><p class="tiny">${s.count} учебных предложений · цены вымышленные</p></div><span class="pill">Демо</span></div>`).join('<div class="separate"></div>')}${btn(state.demoSources?'Учебные прайсы подключены ✓':'Подключить учебные прайсы','enableSources',state.demoSources?'btn-secondary btn-wide':'btn-primary btn-wide',state.demoSources?'disabled':'')}</div>${btn('Вернуться к закупке','work','btn-outline btn-wide')}`;}
+ function viewWork(){const has=state.mode==='list',lineCount=sourceLines().length;
+   return `${stepBack('home')}<div class="helper-steps"><b>1. Потребность</b><span>→</span><span>2. Подбор</span><span>→</span><span>3. Сообщения</span></div><p class="eyebrow">Новая закупка</p><h2>Что нужно заказать?</h2><p class="muted">Не нужно заполнять каталог заранее. Просто опиши свою задачу.</p>
+    <div class="card"><div class="chiprow"><button class="chip" data-action="mode-list" aria-pressed="${has}">${has?'● ':''}Списком</button><button class="chip" data-action="mode-stock" aria-pressed="${!has}">${!has?'● ':''}По остаткам</button></div><div class="space"></div>${has?renderTextInput():renderStockInput()}</div>
+    <div class="card card-flat"><div class="row"><div><strong>${state.demoSources?'Учебные прайсы подключены':'Для подбора нужны прайсы'}</strong><p class="tiny">${state.demoSources?'2 поставщика · учебные данные':'Сначала можно написать список — он не пропадёт'}</p></div><span class="pill ${state.demoSources?'':'pill-warn'}">${state.demoSources?'Готово':'Нет источника'}</span></div><button class="link-btn" data-action="sources">${state.demoSources?'Посмотреть источники':'Подключить учебные прайсы'} →</button></div>
+    ${btn('Подобрать предложения →','analyze','btn-primary btn-wide',lineCount?'':'disabled')}`;
+ }
+ function renderTextInput(){return `<label for="request" class="field-label">Товары и количества</label><textarea id="request" name="request" placeholder="Водка для коктейлей — 10 л&#10;Шато Тамань белое — 6 бут.&#10;Сироп ванильный — 3 л">${escape(state.text)}</textarea><p class="tiny">Один товар на строку. В этой Alpha распознаётся ограниченный набор учебных товаров.</p><div class="step-title">Попробовать пример</div><div class="chiprow">${D.examples.map((it,i)=>`<button type="button" class="chip" data-example="${i}">${escape(it.title)}</button>`).join('')}</div>`;}
+ function renderStockInput(){return `<p class="muted">Укажи сегодняшние остатки. Ничего не подставляем автоматически из прошлой закупки.</p><div class="inventory-top"><span>Товар и цель</span><span>Сейчас</span><span>В пути</span></div>${D.inventory.map((it,i)=>{const rec=state.inventory[it.id]||{};return `<div class="inventory-row"><div><div class="offer-title">${escape(it.label)}</div><div class="tiny">Цель: ${qty(it.target)} ${it.unit}</div></div><input class="field" inputmode="decimal" aria-label="Остаток: ${escape(it.label)}" placeholder="—" data-stock="${it.id}" data-type="current" value="${escape(rec.current??'')}"><input class="field" inputmode="decimal" aria-label="В пути: ${escape(it.label)}" placeholder="0" data-stock="${it.id}" data-type="inTransit" value="${escape(rec.inTransit??'')}"></div>`;}).join('')}<p class="tiny">Пустой остаток означает «неизвестно», а не ноль. Товар в пути указывается только когда заказ действительно подтверждён.</p>`;}
+ function showQuestion(q,index,total){
+   if(q.kind==='choice'){
+     const options=[...q.groups.entries()].map(([key,items])=>{const best=getBestOffer(q.item,items);const o=best?.o||items[0];return {key,title:o.name,price:best?.cost??null,note: `${getSupplier(o.supplier)} · ${best?rub(best.cost):'Нужна единица'}`};}).sort((a,b)=>(a.price??Infinity)-(b.price??Infinity));
+     let title=q.item.category==='chateau'?'Какое вино нужно?':q.item.category==='gold'?'Какой объём бутылки?':q.item.category==='vodka'?'Какую водку выбрать?':'Уточни товар';
+     const lead=q.item.category==='vodka'?'В учебных прайсах есть несколько марок. Не буду выбирать за тебя без разрешения.':q.item.category==='gold'?'Нашёл бутылки разных объёмов. При заказе штуками это важно.':'Нашёл несколько разновидностей. Выбери подходящую.';
+     return `<p class="eyebrow">Нужно уточнить · ${index+1} из ${total}</p><h2>${title}</h2><p class="muted">${escape(lead)}</p><div class="note">Твой запрос: <strong>${escape(q.item.raw)}</strong></div><div class="card stack">${options.map(op=>`<button class="offer" data-pick="${q.item.id}" data-key="${escape(op.key)}"><div class="offer-title">${escape(op.title)}</div><div class="offer-meta">${escape(op.note)} · цена учебная</div></button>`).join('')}</div>${btn('Оставить без решения','exclude-'+q.item.id,'btn-outline btn-wide')}`;
+   }
+   const {item,selected}=q;const u=selected.o.unit==='bottle'?'бут.':'уп.';
+   return `<p class="eyebrow">Нужно решение · ${index+1} из ${total}</p><h2>Поставщик продаёт больше, чем нужно</h2><p class="muted">У этого товара есть минимальная партия или кратность упаковки.</p><div class="card stack"><h3>${escape(selected.o.name)}</h3><div class="row"><span class="muted">Нужно</span><strong>${qty(item.n)} ${item.unit==='liter'?'л':item.unit==='bottle'?'бут.':item.unit==='piece'?'шт.':'уп.'}</strong></div><div class="row"><span class="muted">По условиям поставщика</span><strong>${qty(selected.count)} ${u}</strong></div><div class="row"><span class="muted">Стоимость всего заказа</span><span class="metric-small">${rub(selected.cost)}</span></div><p class="tiny">Это вымышленные учебные условия. Превышение не подтверждаем автоматически.</p></div>${btn(`Заказать ${qty(selected.count)} ${u}`,'accept-'+item.id,'btn-primary btn-wide')}<div class="space"></div>${btn('Не включать эту позицию','exclude-'+item.id,'btn-outline btn-wide')}`;
+ }
+ function viewReview(){const calc=scenario();
+   if(!state.demoSources) return `${stepBack('work')}<p class="eyebrow">Сначала источник</p><h2>Нужны предложения поставщиков</h2><p class="muted">Список сохранён. Чтобы проверить подбор на учебных данных, подключи демо-прайсы.</p>${btn('Подключить учебные прайсы','enableSources','btn-primary btn-wide')}`;
+   if(!calc.lines.length)return `${stepBack('work')}<h2>Заявка пока пуста</h2>${btn('Вернуться к списку','work','btn-primary btn-wide')}`;
+   if(calc.questions.length){return `${stepBack('work')}<div class="helper-steps"><span>1. Потребность</span><span>→</span><b>2. Уточнения</b><span>→</span><span>3. Результат</span></div>${showQuestion(calc.questions[0],0,calc.questions.length)}<p class="tiny">Другие понятные товары уже рассчитаны. Решения сохраняются в этом браузере.</p>`;}
+   return resultMarkup(calc);
+ }
+ function unitLabel(o,count){
+   if(o.unit==='pack')return `${qty(count)} уп. × ${qty(o.volume)} шт.`;
+   if(o.multiple>1&&count%o.multiple===0)return `${qty(count/o.multiple)} кор. × ${o.multiple} бут.`;
+   return `${qty(count)} бут.`;
+ }
+ function resultMarkup(calc){
+   const partial=calc.missing.length>0;
+   let sourceCount=calc.lines.filter(x=>!x.missingStock&&!x.invalid).length;
+   return `${stepBack('work')}<div class="helper-steps"><span>1. Потребность</span><span>→</span><span>2. Подбор</span><span>→</span><b>3. Результат</b></div><p class="eyebrow">${partial?'Частично готово':'Готово к отправке'}</p><h2>${partial?'Часть позиций требует внимания':'Закупка готова'}</h2><p class="muted">Предварительный расчёт только по подключённым учебным предложениям.</p>
+   <div class="card"><p class="label-quiet">Общая стоимость</p><div class="metric">${rub(calc.total)}</div><p class="tiny">${calc.ready.length} ${calc.ready.length===1?'позиция':'позиций'} · ${calc.suppliers.size} ${calc.suppliers.size===1?'поставщик':'поставщика'}${partial?` · ${calc.missing.length} без предложения`:''}</p>${calc.ready.length?'':'<div class="note warm">Пока нет позиций, которые можно включить в заказ.</div>'}</div>
+   ${partial?`<div class="card warm"><h3>Не включено в сообщения</h3>${calc.missing.map(x=>`<div class="product-line"><div class="name">${escape(x.item.raw)}</div><div class="detail">${escape(x.reason)}</div></div>`).join('')}<div class="space"></div>${btn('Изменить список','work','btn-outline btn-wide')}</div>`:''}
+   ${[...calc.suppliers].map(([id,items])=>{const total=items.reduce((s,x)=>s+x.cost,0);return `<div class="card"><div class="row"><div><h3>${escape(getSupplier(id))}</h3><p class="tiny">${items.length} позиций · вымышленные цены</p></div><div class="metric-small">${rub(total)}</div></div><details><summary class="details-toggle">Посмотреть товары и расчёт ↓</summary>${items.map(x=>`<div class="product-line"><div class="row row-top"><div class="name">${escape(x.o.name)}</div><strong>${rub(x.cost)}</strong></div><div class="detail">К заказу: ${unitLabel(x.o,x.count)} · ${rub(x.o.price)} за ${x.o.unit==='bottle'?'бутылку':'упаковку'}</div>${x.over?`<div class="detail">Потребность: ${qty(x.item.n)} ${x.item.unit==='liter'?'л':x.item.unit==='bottle'?'бут.':'шт.'} · покупка с запасом подтверждена</div>`:''}</div>`).join('')}</details></div>`;}).join('')}
+   ${calc.ready.length?`${deliveryForm()}<div class="card"><h3>Сообщения поставщикам</h3><p class="tiny">Без технических расчётов и цен по умолчанию. Сообщения не отправляются автоматически.</p><div class="space"></div>${[...calc.suppliers].map(([id,items])=>`<div class="stack"><div class="row"><strong>${escape(getSupplier(id))}</strong><span class="pill">Готово к копированию</span></div><div class="message-text" id="msg-${id}">${escape(messageForSupplier(id,items))}</div>${btn('Скопировать сообщение','copy-'+id,'btn-primary btn-wide')}</div><div class="space"></div>`).join('')}</div>${btn('Сохранить как прошлую закупку','saveHistory','btn-outline btn-wide')}`:''}
+   ${btn('Изменить товары','work','btn-quiet btn-wide')}`;
+ }
+ function deliveryForm(){const d=state.delivery;return `<div class="card stack"><div><h3>Доставка</h3><p class="tiny">Заполни только то, что нужно указать поставщику. Эти значения сохранятся для следующей закупки.</p></div><div class="grid-2"><div><label class="field-label" for="delivery-date">Дата</label><input type="date" id="delivery-date" class="field" value="${escape(d.date)}"></div><div><label class="field-label" for="delivery-window">Время</label><input id="delivery-window" class="field" placeholder="15:00–19:00" value="${escape(d.window)}"></div></div><div><label class="field-label" for="delivery-address">Адрес</label><input id="delivery-address" class="field" placeholder="Улица, дом, заведение" value="${escape(d.address)}"></div><div><label class="field-label" for="delivery-comment">Комментарий</label><input id="delivery-comment" class="field" placeholder="Например: звонить при подъезде" value="${escape(d.comment)}"></div><label class="checkboxline"><input type="checkbox" id="include-prices" ${d.includePrices?'checked':''}>Указать закупочные цены в сообщениях</label><p class="tiny">Менять доставку можно прямо здесь. Сообщения обновятся автоматически.</p></div>`;}
+ function messageForSupplier(id,items){const d=state.delivery;const lines=['Привет! Заказ для бара:',''];items.forEach((x,i)=>{
+   const cost=d.includePrices?` · ${rub(x.cost)}`:'';
+   lines.push(`${i+1}. ${x.o.name} — ${unitLabel(x.o,x.count)}${cost}`);
+ });
+   if(d.date||d.window||d.address||d.comment)lines.push('');
+   if(d.date){const parts=d.date.split('-');lines.push(`Дата доставки: ${parts.length===3?`${parts[2]}.${parts[1]}.${parts[0]}`:d.date}`);}
+   if(d.window)lines.push(`Время доставки: ${d.window}`);
+   if(d.address)lines.push(`Адрес: ${d.address}`);
+   if(d.comment)lines.push(d.comment);
+   lines.push('','Спасибо!');return lines.join('\n');
+ }
+ function viewHistory(){return `${stepBack('home')}<p class="eyebrow">История</p><h2>Закупки и повтор</h2><p class="muted">Здесь сохраняется утверждённый тобой шаблон. Копирование сообщения не означает, что поставщик его получил.</p>${state.history.length?`<div class="card">${state.history.map((h,i)=>`<div class="history-item"><div class="row"><div><strong>${escape(h.label)}</strong><p class="tiny">${escape(h.savedAt)} · ${h.mode==='stock'?'По остаткам':'Списком'}</p></div><span class="pill">Учебная</span></div><button class="link-btn" data-action="repeat-${i}">Повторить закупку →</button></div>`).join('')}</div>`:'<div class="card"><div class="empty-icon">↻</div><h3>Пока нет сохранённых закупок</h3><p class="muted">После первого учебного расчёта можно сохранить его как основу для повторения.</p></div>'}${btn('Новая закупка','new','btn-primary btn-wide')}`;}
+ function render(){const views={home:viewHome,work:viewWork,sources:viewSources,review:viewReview,history:viewHistory};$('app').innerHTML=(views[state.view]||viewHome)();document.title=`БарЗаявка 2.0 · ${({home:'Главная',work:'Закупка',sources:'Прайсы',review:'Результат',history:'История'})[state.view]||'UX Alpha'}`;}
+ function resetForRun(){state.choices={};state.surplus={};state.excluded={};}
+ function analyze(){if(!state.demoSources){nav('review');return;}const lines=sourceLines();if(!lines.length){toast('Добавь хотя бы один товар');return;}resetForRun();nav('review');}
+ function repeat(index=0){const h=state.history[index];if(!h){toast('Пока нечего повторять');return;}state.mode=h.mode;state.text=h.text;
+   // Old inventory measurements are never copied as today's stock.
+   state.inventory={};resetForRun();nav('work');toast('Товары восстановлены. Проверь сегодняшнюю потребность.');}
+ function saveHistory(){const calc=scenario();const entry={label:calc.ready.length?`${calc.ready[0].item.name}${calc.ready.length>1?` и ещё ${calc.ready.length-1}`:''}`:'Закупка',savedAt:new Date().toLocaleString('ru-RU',{dateStyle:'short',timeStyle:'short'}),mode:state.mode,text:state.text};state.history.unshift(entry);state.history=state.history.slice(0,12);persist();toast('Сохранено. Можно повторить из истории.');}
+ function updateMessagePreview(){if(state.view!=='review')return;const calc=scenario();for(const [id,items] of calc.suppliers){const el=$(`msg-${id}`);if(el)el.textContent=messageForSupplier(id,items);}}
+ const toastCopy=async id=>{const calc=scenario(),items=calc.suppliers.get(id);if(!items)return;const value=messageForSupplier(id,items);
+  try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(value);}else{const el=document.createElement('textarea');el.value=value;el.style.position='fixed';el.style.opacity='0';document.body.appendChild(el);el.select();const ok=document.execCommand('copy');el.remove();if(!ok)throw new Error('not copied');}toast('Сообщение скопировано. Оно ещё не отправлено.');}catch(e){toast('Не удалось скопировать. Выдели текст сообщения вручную.');}
+ };
+ document.addEventListener('click',e=>{
+   if(e.target.closest('#brand-link')){e.preventDefault();nav('home');return;}
+   if(e.target.closest('#menu-toggle')){const menu=$('side-menu');menu.classList.toggle('hidden');$('menu-toggle').setAttribute('aria-expanded',String(!menu.classList.contains('hidden')));return;}
+   const example=e.target.closest('[data-example]');if(example){const sample=D.examples[Number(example.dataset.example)];state.text=sample.value;persist();render();return;}
+   const pick=e.target.closest('[data-pick]');if(pick){state.choices[Number(pick.dataset.pick)]=pick.dataset.key;persist();render();window.scrollTo(0,0);return;}
+   const action=e.target.closest('[data-action]')?.dataset.action;if(!action)return;
+   $('side-menu').classList.add('hidden');$('menu-toggle').setAttribute('aria-expanded','false');
+   if(['home','work','sources','history','review'].includes(action)){nav(action);return;}
+   if(action==='new'){state.mode='list';state.text='';state.inventory={};resetForRun();nav('work');return;}
+   if(action==='enableSources'){state.demoSources=true;persist();nav(state.text.trim()||state.mode==='stock'?'work':'sources');toast('Учебные прайсы подключены');return;}
+   if(action==='mode-list'||action==='mode-stock'){state.mode=action==='mode-list'?'list':'stock';persist();render();return;}
+   if(action==='analyze'){analyze();return;}
+   if(action==='saveHistory'){saveHistory();return;}
+   if(action==='repeat'){repeat();return;}
+   if(action.startsWith('repeat-')){repeat(Number(action.slice(7)));return;}
+   if(action.startsWith('accept-')){state.surplus[Number(action.slice(7))]=true;persist();render();window.scrollTo(0,0);return;}
+   if(action.startsWith('exclude-')){state.excluded[Number(action.slice(8))]=true;persist();render();window.scrollTo(0,0);return;}
+   if(action.startsWith('copy-')){toastCopy(action.slice(5));return;}
+   if(action==='reset'){if(window.confirm('Сбросить все учебные данные этого браузера?')){localStorage.removeItem(KEY);state=structuredClone(base);nav('home');toast('Учебный прототип сброшен');}return;}
+ });
+ document.addEventListener('input',e=>{
+   if(e.target.id==='request'){state.text=e.target.value;persist();const analyzeBtn=document.querySelector('[data-action="analyze"]');if(analyzeBtn)analyzeBtn.disabled=!state.text.trim();return;}
+   if(e.target.matches('[data-stock]')){const id=e.target.dataset.stock;state.inventory[id]??={};state.inventory[id][e.target.dataset.type]=e.target.value.replace(',','.');persist();return;}
+   const fields={'delivery-date':'date','delivery-window':'window','delivery-address':'address','delivery-comment':'comment'};
+   if(fields[e.target.id]){state.delivery[fields[e.target.id]]=e.target.value;persist();updateMessagePreview();return;}
+ });
+ document.addEventListener('change',e=>{if(e.target.id==='include-prices'){state.delivery.includePrices=e.target.checked;persist();updateMessagePreview();}});
+ render();
+})();
+
+</script>
+</body>
+</html>
