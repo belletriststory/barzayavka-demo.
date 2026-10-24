@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="БарЗаявка 2.0 — исследовательский мобильный UX-прототип закупок для бара с учебными данными.">
+  <title>БарЗаявка 2.0 · Бэк как напарник · Эксперимент 2</title>
+  <style>
+:root{--bg:#f7f8f5;--paper:#fff;--ink:#1c2b27;--muted:#708079;--line:#e3e9e4;--accent:#146b54;--accent-hover:#115943;--soft:#e7f2ed;--warm:#fff7e9;--warn:#985d1c;--danger:#ae4949;--shadow:0 12px 36px rgba(27,54,40,.055);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);font-synthesis:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}a{color:inherit;text-decoration:none}.hidden{display:none!important}.shell{max-width:840px;margin:auto;min-height:100vh;padding:0 20px 24px}.topbar{height:76px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:25px;font-weight:800;letter-spacing:-1.3px;display:flex;align-items:center;gap:10px}.brand-symbol{display:grid;place-items:center;width:32px;height:32px;color:#fff;background:var(--accent);border-radius:9px;font-size:24px;font-weight:400}.brand-light{font-weight:450}.head-right{display:flex;align-items:center;gap:12px}.alpha{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--accent);border:1px solid #bfd9cc;padding:8px 9px;border-radius:8px}.icon-btn{border:1px solid var(--line);background:#fff;border-radius:11px;width:38px;height:38px;font-size:18px;color:var(--ink)}.menu{position:relative;display:flex;flex-wrap:wrap;gap:5px;padding:9px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;box-shadow:var(--shadow)}.menu button{border:none;background:transparent;color:var(--ink);text-align:left;padding:12px;border-radius:8px}.menu button:hover{background:var(--soft)}.demo-banner{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;line-height:1.6;color:#686857;background:#fff9ed;padding:10px 13px;border:1px solid #f0e4c7;border-radius:12px;margin-bottom:26px}.demo-banner strong{color:#5e4a26}.demo-dot{display:inline-block;width:7px;height:7px;background:#d9ac53;border-radius:100%}main{max-width:720px;margin:auto;min-height:60vh}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:1.5px;font-weight:850;text-transform:uppercase;margin:0 0 12px}.hero{padding:23px 0 20px}h1{font-size:clamp(34px,6vw,50px);line-height:1.12;letter-spacing:-1.8px;margin:0 0 13px;font-weight:750}h2{font-size:25px;line-height:1.15;letter-spacing:-.6px;margin:0 0 12px}h3{font-size:17px;line-height:1.3;margin:0}p{line-height:1.6;margin:0 0 13px}.lead{color:var(--muted);font-size:17px;max-width:560px}.muted{color:var(--muted)}.tiny{font-size:12px;color:var(--muted)}.card{border-radius:17px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);padding:21px;margin:14px 0}.card-flat{box-shadow:none}.inset{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fbfcfa}.warm{background:var(--warm);border-color:#f0e5ce}.soft{background:var(--soft);border-color:#d5e9df}.row{display:flex;justify-content:space-between;align-items:center;gap:14px}.row-top{align-items:flex-start}.stack{display:flex;flex-direction:column;gap:12px}.gap-sm{gap:7px}.space{height:16px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;min-height:48px;border:1px solid transparent;border-radius:12px;font-weight:700;text-align:center;line-height:1.3;transition:background .15s,transform .15s}.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-hover)}.btn-secondary{background:var(--soft);color:var(--accent)}.btn-outline{border-color:var(--line);background:white;color:var(--ink)}.btn-quiet{background:transparent;color:var(--accent);padding:9px 4px;min-height:36px}.btn-wide{width:100%}.btn-small{font-size:13px;min-height:37px;padding:8px 11px}.btn:active{transform:translateY(1px)}.link-btn{background:transparent;border:0;padding:6px 0;color:var(--accent);font-weight:650;text-align:left}.field-label{display:block;font-size:13px;font-weight:720;color:#4b6056;margin:0 0 8px}.field,textarea,select{width:100%;border:1.5px solid #dce5df;border-radius:12px;background:#fff;outline:0;color:var(--ink);padding:12px 13px;min-height:46px;transition:border-color .15s,box-shadow .15s}textarea{resize:vertical;line-height:1.7;min-height:158px;font-size:16px}input{font-size:16px}.field:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(20,107,84,.11)}.chiprow{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);border-radius:99px;background:#fff;padding:8px 12px;font-size:13px;color:#426255}.step-title{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#71867b;font-weight:800;margin-bottom:12px}.metric{font-size:35px;font-weight:800;letter-spacing:-1px;font-variant-numeric:tabular-nums}.metric-small{font-size:23px;font-weight:750;font-variant-numeric:tabular-nums}.supplier-row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.supplier-row:last-child{border-bottom:0}.separate{border-top:1px solid var(--line);margin:16px 0}.pill{border-radius:20px;padding:5px 9px;background:#edf3ef;color:#35664f;font-size:11px;font-weight:750;white-space:nowrap}.pill-warn{background:#fff3d9;color:#9d6516}.pill-missing{background:#fff0ef;color:#a54646}.offer{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;text-align:left;width:100%;display:block}.offer:hover,.offer:focus{border-color:#7ab69b;background:#f5faf7}.offer-title{font-size:15px;font-weight:720}.offer-meta{font-size:12px;color:var(--muted);margin-top:6px}.choice-icon{font-size:21px;color:var(--accent)}.label-quiet{font-size:12px;color:var(--muted);display:block;margin-bottom:4px}.progress{height:5px;border-radius:20px;background:#e3eae5;overflow:hidden}.progress>div{height:100%;background:var(--accent)}.product-line{padding:12px 0;border-bottom:1px solid var(--line)}.product-line:last-child{border-bottom:0}.product-line .name{font-weight:700;font-size:14px}.detail{color:var(--muted);font-size:12px;margin-top:3px}.split-actions{display:flex;gap:8px;flex-wrap:wrap}.split-actions>*{flex:1}.details-toggle{color:var(--accent);cursor:pointer;font-weight:600;padding:9px 0;font-size:13px}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}.item-count{font-size:12px;font-weight:650;color:var(--muted)}.empty-icon{width:44px;height:44px;background:var(--soft);color:var(--accent);display:grid;place-items:center;border-radius:14px;margin-bottom:15px;font-size:20px}.footer{font-size:11px;color:#95a099;text-align:center;border-top:1px solid var(--line);padding:24px 0 16px;line-height:1.6;margin-top:55px}.toast{z-index:50;position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,100px);background:#20392f;color:#fff;border-radius:12px;padding:12px 18px;font-size:13px;max-width:90vw;transition:transform .2s ease;box-shadow:0 16px 35px #0002}.toast.show{transform:translate(-50%,0)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.inventory-row{display:grid;grid-template-columns:minmax(0,1fr) 104px 82px;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.inventory-row:last-child{border:0}.inventory-row input{max-width:100%;min-width:0}.inventory-row .field{padding:10px 7px;font-size:16px}.inventory-top{display:grid;grid-template-columns:minmax(0,1fr) 104px 82px;gap:9px;color:var(--muted);font-size:11px;font-weight:650;margin-bottom:8px}.note{background:#f5f8f4;border:1px solid #e4eee7;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5}.message-text{font-size:14px;line-height:1.65;white-space:pre-wrap;word-break:break-word;font-family:inherit;background:#f9fbf8;border-radius:10px;border:1px solid #e5ede6;padding:14px;max-height:320px;overflow:auto}.checkboxline{display:flex;align-items:center;gap:9px;font-size:14px}.checkboxline input{width:18px;height:18px;accent-color:var(--accent)}.small-input{max-width:110px}.helper-steps{display:flex;gap:9px;align-items:center;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:20px}.helper-steps b{color:var(--accent)}.history-item{padding:14px 0;border-bottom:1px solid var(--line)}.history-item:last-child{border:0}.back{background:transparent;border:none;color:var(--accent);padding:5px 0 18px;font-weight:700}.visually-hidden{position:absolute!important;clip:rect(0,0,0,0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}.alert{color:var(--danger);font-size:13px;font-weight:600;padding-top:6px}::selection{background:#cfebdc}
+.question-progress{margin:0 0 26px}.question-progress .row{margin-bottom:12px}.question-progress .eyebrow{margin:0}.question-progress strong{font-size:13px;color:var(--muted)}.offer-choice{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:65px;cursor:pointer}.offer-choice span:first-child{display:flex;flex-direction:column;align-items:flex-start}.offer-choice:active{background:var(--soft)}.offer-choice:focus-visible{outline:3px solid #a0cfb4;outline-offset:2px}.card .stack .btn{flex-shrink:0}.question-progress .progress{height:6px}@media(max-width:550px){.shell{padding:0 16px 14px}.topbar{height:66px}.brand{font-size:22px}.demo-banner{margin-bottom:13px}.hero{padding:17px 0 15px}.card{padding:17px;margin:11px 0}h1{font-size:37px}h2{font-size:23px}.metric{font-size:32px}.grid-2{grid-template-columns:1fr 1fr;gap:8px}.split-actions{flex-direction:column}.inventory-row,.inventory-top{grid-template-columns:minmax(0,1fr) 70px 62px;gap:6px}.inventory-row .field{padding:10px 4px;text-align:center}.footer{margin-top:30px}.menu{flex-direction:column}.offer-meta{line-height:1.45}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+  
+/* Step 5.6: barback A/B experiment. Visual only, equal business logic. */
+.back-experiment-switch{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:0 0 17px;padding:11px 13px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.back-experiment-descriptor{display:flex;flex-direction:column;gap:2px;min-width:0}
+.back-experiment-descriptor strong{font-size:12px;color:#365b4a}
+.back-experiment-descriptor span{font-size:11px;color:var(--muted);line-height:1.35}
+.back-mode-group{display:flex;gap:3px;background:#eff4ef;padding:3px;border:1px solid #e2e9e3;border-radius:9px;flex-shrink:0}
+.back-mode-option{border:0;border-radius:7px;background:transparent;color:#557065;padding:8px 10px;font-size:12px;font-weight:700;min-height:37px}
+.back-mode-option[aria-pressed="true"]{background:#fff;color:#146b54;box-shadow:0 1px 4px #172a1d16}
+.back-mode-option:focus-visible{outline:3px solid #a0cfb4;outline-offset:2px}
+.back-message{display:flex;gap:12px;align-items:center;border:1px solid #d7e5d9;background:#f0f6f0;border-radius:14px;padding:10px 12px;margin:0 0 17px;min-height:91px}
+.back-sprite-wrap{width:68px;height:68px;border-radius:11px;background:linear-gradient(145deg,#dceee4,#eaf3e7);border:1px solid #cbded0;flex-shrink:0;display:grid;place-items:center;overflow:hidden}
+.back-sprite{width:66px;height:66px;image-rendering:pixelated;image-rendering:crisp-edges;object-fit:contain;animation:back-idle 3.2s ease-in-out infinite}
+.back-dialog{min-width:0;flex:1}
+.back-name{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:4px}
+.back-identity{font-size:13px;font-weight:900;letter-spacing:.2px;color:#205741}
+.back-role{color:#7c9587;font-size:10px}
+.back-dialog p{font-size:13px;color:#395a49;line-height:1.45;margin:0}
+.back-message-care{border-color:#eddfc6;background:#fff8ed}
+.back-message-care .back-sprite-wrap{background:linear-gradient(145deg,#faeccc,#fff7e9);border-color:#eadbbb}
+.back-message-success{background:#eaf5ee}
+@keyframes back-idle{0%,100%{transform:translateY(1px)}50%{transform:translateY(-1px)}}
+@media (prefers-reduced-motion:reduce){.back-sprite{animation:none}}
+@media(max-width:550px){.back-experiment-switch{padding:9px 10px;gap:8px}.back-mode-option{padding:7px 8px;font-size:11px;min-height:35px}.back-experiment-descriptor strong{font-size:11px}.back-experiment-descriptor span{font-size:10px}.back-message{padding:9px;gap:9px}.back-sprite-wrap{width:59px;height:59px}.back-sprite{width:57px;height:57px}.back-dialog p{font-size:12px}}
+@media(max-width:340px){.back-experiment-switch{flex-wrap:wrap}.back-mode-group{width:100%}.back-mode-option{flex:1}}
+
+.toast:not(.show){opacity:0;visibility:hidden;pointer-events:none}.toast.show{opacity:1;visibility:visible}
+/* Back Experiment 2: Back is a participant, not a decorative notification. */
+.shell{padding-bottom:calc(108px + env(safe-area-inset-bottom))}
+.back-experiment-switch{border-color:#cfe2d4;background:#f7faf7;box-shadow:0 4px 18px rgba(32,72,49,.04)}
+.back-mode-option{min-height:44px}
+.back-message{position:relative;isolation:isolate;min-height:148px;padding:19px 20px;gap:19px;border-radius:20px;margin:8px 0 24px;border-color:#c8dccf;background:linear-gradient(135deg,#eaf6ed 0%,#f5f9f1 76%);overflow:hidden;box-shadow:0 12px 34px rgba(26,78,52,.075)}
+.back-message:before{content:'';position:absolute;right:-32px;bottom:-83px;height:180px;width:180px;border-radius:50%;background:#d0e9d630;z-index:-1}
+.back-sprite-wrap{width:115px;height:115px;align-self:center;border-radius:18px;background:#deefe2;border:2px solid #b7d5bd;box-shadow:0 8px 0 #b7d5bd33;overflow:visible;position:relative}
+.back-sprite{width:110px;height:110px;object-fit:contain;image-rendering:pixelated;animation:back-breathe 3.4s steps(3,end) infinite}
+.back-message-success .back-sprite{animation:back-victory 1.5s steps(4,end) 1,back-breathe 3s steps(3,end) 1.5s infinite}
+.back-message-care{background:linear-gradient(145deg,#fff7e9,#fffbf5);border-color:#efdcc0}
+.back-message-care .back-sprite-wrap{background:#fff0d1;border-color:#ebd6aa}
+.back-message-success{background:linear-gradient(135deg,#e0f4e3,#f6fbef);border-color:#b6dfbb}
+.back-dialog{min-width:0;flex:1;position:relative;z-index:1}
+.back-tag{font-size:10px;font-weight:850;letter-spacing:1.3px;color:#528570;display:flex;gap:7px;align-items:center;margin-bottom:7px}
+.back-dot{width:7px;height:7px;border-radius:2px;background:#52a27d}
+.back-name{font-size:14px;font-weight:850;color:#235d45;letter-spacing:0;margin-bottom:8px;gap:5px}
+.back-name span{font-size:11px;font-weight:550;color:#819789}
+.back-heading{font-size:22px;line-height:1.15;letter-spacing:-.55px;margin:0 0 9px;color:#174a38}
+.back-dialog p{font-size:14px;line-height:1.52;color:#45665a;margin:0}
+.back-question-host{min-height:164px;margin-top:0;margin-bottom:17px;background:linear-gradient(110deg,#ebf5eb,#f5faf3)}
+.with-back .question-progress+h2,.with-back .question-progress+h2+p.muted{display:none}
+.with-back .question-progress{margin-bottom:14px}
+.with-back .question-progress +.back-message +h2,.with-back .question-progress +.back-message +h2+p.muted{display:none}
+.with-back .question-progress +.back-message+.note{margin-top:0}
+.with-back .offer-choice{border-radius:12px;transition:background .18s ease,transform .18s ease}
+.with-back .offer-choice:active{transform:scale(.985)}
+.back-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.back-confetti i{position:absolute;display:block;height:7px;width:7px;background:#f6bd55;top:20%;left:15%;animation:back-pixel-party 1.8s steps(7,end) 1 both}
+.back-confetti i:nth-child(2){background:#4f9e73;left:23%;top:9%;animation-delay:.11s}
+.back-confetti i:nth-child(3){background:#db8859;left:7%;top:48%;animation-delay:.25s}
+.back-confetti i:nth-child(4){background:#c2a2dc;left:42%;top:12%;animation-delay:.16s}
+.back-confetti i:nth-child(5){background:#e0b156;left:65%;top:6%;animation-delay:.2s}
+.back-confetti i:nth-child(6){background:#60ad91;left:83%;top:26%;animation-delay:.3s}
+.back-reward{position:fixed;bottom:calc(92px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:9999;display:flex;align-items:center;gap:12px;max-width:min(calc(100vw - 30px),410px);width:max-content;padding:12px 18px;border-radius:14px;background:#184b3b;color:white;box-shadow:0 12px 34px #173e3470;font-size:14px;font-weight:700;line-height:1.3;animation:back-cheer-enter .27s ease-out both;pointer-events:none}
+.reward-sticker{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#3a8662;color:#ffdd6c;font-size:21px;font-weight:950;flex:0 0 auto}
+.back-reward-happy .reward-sticker{animation:back-star-dance .55s steps(3,end) 2}
+@keyframes back-breathe{0%,100%{transform:translateY(2px) rotate(0)}50%{transform:translateY(-2px) rotate(-1deg)}}
+@keyframes back-victory{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-15px) rotate(-7deg)}70%{transform:translateY(-8px) rotate(8deg)}}
+@keyframes back-pixel-party{0%{opacity:0;transform:translate(0,10px) rotate(0)}20%{opacity:1}100%{opacity:0;transform:translate(15px,96px) rotate(240deg)}}
+@keyframes back-cheer-enter{0%{opacity:0;transform:translate(-50%,16px)}100%{opacity:1;transform:translate(-50%,0)}}
+@keyframes back-star-dance{0%,100%{transform:rotate(0)}50%{transform:rotate(20deg) scale(1.2)}}
+@media(max-width:550px){
+  .shell{padding-bottom:calc(118px + env(safe-area-inset-bottom))}
+  .back-message{padding:16px 13px;gap:13px;min-height:140px;margin-bottom:19px;border-radius:18px}
+  .back-sprite-wrap{width:92px;height:92px;border-radius:13px;align-self:center}
+  .back-sprite{width:88px;height:88px}
+  .back-heading{font-size:18px;line-height:1.16}
+  .back-dialog p{font-size:12px;line-height:1.48}
+  .back-tag{font-size:9px;letter-spacing:.7px;margin-bottom:5px}
+  .back-name{font-size:12px;margin-bottom:6px}
+  .back-name span{font-size:10px}
+  .back-reward{font-size:12px}
+}
+@media(max-width:360px){.back-message{gap:9px;padding:12px 10px}.back-sprite-wrap{width:76px;height:76px}.back-sprite{width:72px;height:72px}.back-heading{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.back-sprite,.back-message-success .back-sprite,.back-confetti i,.back-reward,.reward-sticker{animation:none!important}}
+
+</style>
+
+
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a href="#" id="brand-link" class="brand" aria-label="БарЗаявка, на главную"><span class="brand-symbol" aria-hidden="true">▥</span><span>бар<span class="brand-light">заявка</span></span></a>
+      <div class="head-right"><span class="alpha">Back 2 · A/B</span><button class="icon-btn" id="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button></div>
+    </header>
+    <nav class="menu hidden" id="side-menu" aria-label="Навигация">
+      <button data-action="home">Главная</button><button data-action="new">Новая закупка</button><button data-action="history">История и повтор</button><button data-action="sources">Прайсы</button><button data-action="reset">Сбросить демо</button>
+    </nav>
+    <div class="demo-banner"><span class="demo-dot"></span><strong>Back Experiment 2 · учебный прототип</strong><span>Товары и цены вымышленные. Бэк сопровождает закупку; AI пока не подключён. Excel не загружаются.</span></div>
+    <section class="back-experiment-switch" aria-label="Режим сравнения интерфейса">
+      <div class="back-experiment-descriptor"><strong>Эксперимент 5.6 · версия 2</strong><span>Бэк — напарник, расчёты одинаковые</span></div>
+      <div class="back-mode-group" role="group" aria-label="Показать помощника">
+        <button type="button" class="back-mode-option" data-variant="off" id="variant-off" aria-pressed="false">Без Бэка</button>
+        <button type="button" class="back-mode-option" data-variant="on" id="variant-on" aria-pressed="true">С Бэком</button>
+      </div>
+    </section>
+    <main id="app" aria-live="polite"></main>
+    <footer class="footer">БарЗаявка 2.0 · Проверяем удобство, не отправляем настоящие заказы.</footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+/* Вымышленные учебные предложения и цены, не коммерческие прайсы. */
+window.BAR_DEMO = Object.freeze({
+  sources: [
+    {id:'a',name:'Учебный поставщик А',count:5},
+    {id:'b',name:'Учебный поставщик Б',count:7}
+  ],
+  offers: [
+    {id:'vodka-a',supplier:'a',name:'Водка Северная 0,5 л',category:'vodka',brand:'северная',volume:0.5,unit:'bottle',price:290,multiple:1,min:1},
+    {id:'vodka-b',supplier:'b',name:'Водка Берёзовая 1 л',category:'vodka',brand:'березовая',volume:1,unit:'bottle',price:625,multiple:1,min:1},
+    {id:'vodka-c',supplier:'b',name:'Водка Северная 0,5 л',category:'vodka',brand:'северная',volume:0.5,unit:'bottle',price:305,multiple:1,min:1},
+    {id:'wine-dry-a',supplier:'a',name:'Шато Тамань Белое сухое 0,75 л',category:'chateau',type:'dry',volume:0.75,unit:'bottle',price:635,multiple:1,min:1},
+    {id:'wine-dry-b',supplier:'b',name:'Шато Тамань Белое сухое 0,75 л',category:'chateau',type:'dry',volume:0.75,unit:'bottle',price:650,multiple:1,min:1},
+    {id:'wine-sweet',supplier:'b',name:'Шато Тамань Белое полусладкое 0,75 л',category:'chateau',type:'semisweet',volume:0.75,unit:'bottle',price:620,multiple:1,min:1},
+    {id:'wine-brut',supplier:'a',name:'Шато Тамань Игристое белое брют 0,75 л',category:'chateau',type:'sparkling',volume:0.75,unit:'bottle',price:810,multiple:1,min:1},
+    {id:'gold-small',supplier:'b',name:'Золотая Балка Брют 0,2 л',category:'gold',type:'sparkling',volume:0.2,unit:'bottle',price:260,multiple:1,min:1},
+    {id:'gold-regular',supplier:'a',name:'Золотая Балка Брют 0,75 л',category:'gold',type:'sparkling',volume:0.75,unit:'bottle',price:890,multiple:6,min:6},
+    {id:'syrup',supplier:'b',name:'Сироп Monin Ваниль 1 л',category:'syrup',volume:1,unit:'bottle',price:950,multiple:1,min:1},
+    {id:'napkins',supplier:'a',name:'Салфетки белые, пачка 100 шт.',category:'napkins',volume:100,unit:'pack',price:150,multiple:1,min:1},
+    {id:'water',supplier:'b',name:'Вода негазированная 0,5 л',category:'water',volume:0.5,unit:'bottle',price:55,multiple:12,min:12}
+  ],
+  inventory: [
+    {id:'vodka',label:'Водка для коктейлей',target:12,unit:'л',request:'Водка для коктейлей'},
+    {id:'wine',label:'Шато Тамань белое сухое',target:12,unit:'бут.',request:'Шато Тамань белое сухое'},
+    {id:'syrup',label:'Сироп ванильный',target:5,unit:'л',request:'Сироп ванильный'},
+    {id:'napkins',label:'Салфетки',target:400,unit:'шт.',request:'Салфетки'}
+  ],
+  examples: [
+    {title:'Быстрая заявка',value:'Водка для коктейлей — 10 л\nШато Тамань белое — 6 бут.\nСироп ванильный — 3 л'},
+    {title:'Уточнение объёма',value:'Золотая Балка — 10 бут.'},
+    {title:'Товар не найден',value:'Русский Стандарт — 10 л\nСалфетки — 200 шт.'},
+    {title:'Минимальная партия',value:'Золотая Балка брют 0,75 л — 2 бут.'},
+    {title:'Проверка уточнений',value:'Ягермайстер 5 литров\nВиски ред лейбл 0,7 6 штук\nДжек Дениелс 1\nДжемесон 1\nЯгермайстер Оранж 6 б'},
+    {title:'Белое вино 600–800 ₽',value:'Вино белое за 600–800 рублей — 6 бутылок'}
+  ]
+});
+
+</script>
+<script>
+/* БарЗаявка 2.0 UX Alpha — исключительно учебный браузерный прототип.
+ * Нет AI, импорта XLSX, отправки сообщений, авторизации или реальных цен.
+ */
+(() => {
+ 'use strict';
+ const D=window.BAR_DEMO, KEY='barzayavka-ux-back-ab-v2';
+ const $=id=>document.getElementById(id);
+ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const rub=n=>new Intl.NumberFormat('ru-RU',{style:'currency',currency:'RUB',maximumFractionDigits:0}).format(n);
+ const qty=n=>Number(n).toLocaleString('ru-RU',{maximumFractionDigits:2});
+ const plural=(n,one,few,many)=>{const a=Math.abs(n)%100,b=a%10;return a>10&&a<20?many:b===1?one:b>=2&&b<=4?few:many;};
+ const base={view:'home',mode:'list',demoSources:false,text:'',inventory:{},choices:{},surplus:{},excluded:{},acknowledgedMissing:{},editItemId:null,draftInput:'',flowTotal:0,history:[],draftInput:'',delivery:{date:'',window:'',address:'',comment:'',includePrices:false},showPrices:false};
+ let state;
+ try {state={...base,...JSON.parse(localStorage.getItem(KEY)||'{}')};}catch(e){state={...base};}
+ state.delivery={...base.delivery,...state.delivery};
+ state.inventory=state.inventory||{};state.choices=state.choices||{};state.surplus=state.surplus||{};state.excluded=state.excluded||{};state.acknowledgedMissing=state.acknowledgedMissing||{};state.history=Array.isArray(state.history)?state.history.slice(0,12):[];
+ const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}};
+ let toastTimer=null;
+ function toast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3100);}
+ const btn=(label,action,cls='btn-outline',extra='')=>`<button type="button" class="btn ${cls}" data-action="${action}" ${extra}>${escape(label)}</button>`;
+ const stepBack=(target='work')=>`<button class="back" data-action="${target}">← Назад</button>`;
+ function nav(view){state.view=view;persist();render();window.scrollTo({top:0,behavior:'auto'});}
+ function getSupplier(id){return D.sources.find(s=>s.id===id)?.name||'Учебный поставщик';}
+ const normalize=s=>String(s??'').toLowerCase().replaceAll('ё','е').replaceAll('—','-').replaceAll('–','-');
+ function detectCategory(name){const t=normalize(name);
+   if(/русск.*стандарт|russian standard/.test(t))return 'absent';
+   if(/шато\s*таман|chateau\s*taman/.test(t))return 'chateau';
+   // Категорийный запрос допустим только без названного неизвестного бренда.
+   const genericWhiteWine=/(?:вино|вин[а-я]*)\s+бел|бел[а-я]*\s+(?:вин|вино)/.test(t);
+   const categoryWords=new Set(['вино','вина','вин','белое','белого','белый','белые','белых','за','до','от','рублей','рубля','рубль','руб','р','бут','бутылок','бутылки','бутылка','бутылку','бутылке','б','л','литр','литров','литра','цена','по','в','диапазоне','цене','примерно','около','сухое','сухого','полусладкое','брют','игристое']);
+   if(genericWhiteWine && (t.match(/[а-яa-z]+/g)||[]).every(w=>categoryWords.has(w)))return 'whitewine';
+   if(/золот.*балк/.test(t))return 'gold';
+   if(/monin|сироп|ванил/.test(t))return 'syrup';
+   if(/салфет/.test(t))return 'napkins';
+   if(/водк|vodka/.test(t))return 'vodka';
+   if(/вода|негаз/.test(t))return 'water';
+   return 'unknown';
+ }
+ function parseLine(line,index){
+   const raw=line.trim();if(!raw)return null;
+   // Количество выбирается по ПОСЛЕДНЕЙ паре «число + единица». До неё может идти фасовка (0,7 л).
+   // Не используем \b: JS не считает кириллические буквы частью слова.
+   const unitPattern=/(\d+(?:[.,]\d+)?)\s*(бут(?:ыл(?:ок|ки|ка|ку)?)?\.?|б(?=$|[\s.,;])|л(?:итр(?:ов|а|ы)?)?\.?|шт(?:ук(?:и|а)?)?\.?|штук|уп(?:ак(?:ов(?:ок|ки|ка))?)?\.?|кг)(?=$|[\s,;:!?()\-–—])/gi;
+   const all=[...normalize(raw).matchAll(unitPattern)];
+   let n,unit,name;
+   if(all.length){
+     const last=all[all.length-1];n=Number(last[1].replace(',','.'));
+     unit=/^(?:бут|б$)/.test(last[2])?'bottle':/^(?:шт|штук)/.test(last[2])?'piece':/^уп/.test(last[2])?'pack':/^кг/.test(last[2])?'kg':'liter';
+     name=raw.slice(0,last.index).replace(/[\s\-–—:,;]+$/,'').trim();
+   }else{
+     const tail=normalize(raw).match(/(?:^|[\s:;\-–—])(\d+(?:[.,]\d+)?)\s*$/);
+     if(!tail)return {id:index,raw,name:raw,needsQuantity:true,invalid:'Не указано количество'};
+     n=Number(tail[1].replace(',','.'));
+     name=raw.slice(0,raw.length-tail[1].length).replace(/[\s\-–—:,;]+$/,'').trim();
+     if(n<1) return {id:index,raw,name,needsQuantity:true,invalid:'Неясно, это фасовка или количество'};
+   }
+   if(!name)return {id:index,raw,name:raw,needsQuantity:true,invalid:'Не указано название товара'};
+   if(!Number.isFinite(n)||n<=0)return {id:index,raw,name,needsQuantity:true,invalid:'Нужно положительное количество'};
+   const category=detectCategory(name),text=normalize(name);
+   const volumes=[...text.matchAll(/(?:^|[\s(])(0[.,](?:2|5|7|75)|1[.,]0)\s*(?:л)?(?=$|[\s.,;)])/g)];
+   const requestedVolume=volumes.length?Number(volumes[volumes.length-1][1].replace(',','.')):null;
+   let type=null;
+   if(/полуслад/.test(text))type='semisweet';else if(/игрист|брют|brut/.test(text))type='sparkling';else if(/(?:^|\s)сух/.test(text))type='dry';
+   const brand=/северн/.test(text)?'северная':/березов|берёзов/.test(name.toLowerCase())?'березовая':null;
+   const priceMatch=text.match(/(\d{2,6})\s*[-–—]\s*(\d{2,6})\s*(?:₽|р(?:уб(?:л(?:ей|я|ь|и)?)?)?\.?)?(?=$|[\s,;])/i);
+   // В Alpha считаем такой диапазон ценой ЗА БУТЫЛКУ, что явно показываем в выборе.
+   const priceMin=priceMatch?Number(priceMatch[1]):null;
+   const priceMax=priceMatch?Number(priceMatch[2]):null;
+   return {id:index,raw,name,n,unit,needsUnit:!unit,category,requestedVolume,type,brand,priceMin,priceMax,cheap:/дешев|выгод|эконом/.test(text)};
+ }
+ function sourceLines(){
+   if(state.mode==='list') return state.text.split(/[\n;]+/).map(s=>s.trim()).filter(Boolean).map((s,i)=>parseLine(s,i));
+   const items=[];D.inventory.forEach((it,i)=>{
+      const rec=state.inventory[it.id]||{};
+      if(rec.skip)return;
+      if(rec.current===''||rec.current==null){items.push({id:i,raw:it.label,name:it.label,missingStock:true});return;}
+      const current=Number(rec.current),inTransit=Number(rec.inTransit||0);
+      if(!Number.isFinite(current)||current<0||!Number.isFinite(inTransit)||inTransit<0){items.push({id:i,raw:it.label,name:it.label,invalid:'Остаток и товар в пути должны быть числами от нуля'});return;}
+      const n=Math.max(0,it.target-current-inTransit);
+      if(n>0){items.push(parseLine(`${it.request} — ${qty(n)} ${it.unit}`,i));}
+   });
+   return items;
+ }
+ function selectPool(item){const offers=D.offers.filter(o=>item.category==='whitewine' ? o.category==='chateau' : o.category===item.category)
+   .filter(o=>item.priceMin==null || (o.price>=item.priceMin && o.price<=item.priceMax));
+   if((item.category==='chateau'||item.category==='whitewine') && item.type)return offers.filter(o=>o.type===item.type);
+   if(item.category==='gold'&&item.requestedVolume)return offers.filter(o=>o.volume===item.requestedVolume);
+   if(item.category==='vodka'&&item.brand)return offers.filter(o=>o.brand===item.brand);
+   return offers;
+ }
+ function groupsForItem(item){const pool=selectPool(item);const groups=new Map();
+   for(const o of pool){const k=(item.category==='chateau'||item.category==='whitewine')?o.type:item.category==='gold'?String(o.volume):item.category==='vodka'?`${o.brand}_${o.volume}`:o.category;
+     if(!groups.has(k))groups.set(k,[]);groups.get(k).push(o);
+   }
+   return groups;
+ }
+ function requiredUnits(item,o){
+   if(item.unit==='liter'){if(!o.volume || o.unit!=='bottle')return null;return Math.ceil((item.n-1e-9)/o.volume);}
+   if(item.unit==='bottle'){if(o.unit!=='bottle')return null;return item.n;}
+   if(item.unit==='piece' && o.category==='napkins')return Math.ceil(item.n/o.volume);
+   if(item.unit==='piece' && o.unit==='bottle')return item.n;
+   if(item.unit==='pack'&&o.unit==='pack')return item.n;
+   return null;
+ }
+ function orderOffer(item,o){const needed=requiredUnits(item,o);if(needed==null)return null;
+   const count=Math.max(o.min||1,Math.ceil(needed/(o.multiple||1))*(o.multiple||1));return {o,needed,count,cost:count*o.price,over:count>needed};
+ }
+ function getBestOffer(item,pool){const candidates=pool.map(o=>orderOffer(item,o)).filter(Boolean);
+   return candidates.sort((a,b)=>a.cost-b.cost||a.count-b.count)[0]||null;
+ }
+ function scenario(){
+   const lines=sourceLines(),ready=[],missing=[],questions=[];
+   for(const item of lines){
+     if(state.excluded[item.id]){missing.push({item,reason:'Оставлено без предложения'});continue;}
+     if(item.missingStock){missing.push({item,reason:'Сегодняшний остаток не указан'});continue;}
+     if(item.invalid && state.mode==='stock'){missing.push({item,reason:item.invalid});continue;}
+     if(item.needsUnit){questions.push({kind:'unit',item});continue;}
+     if(item.needsQuantity || item.invalid){questions.push({kind:'quantity',item});continue;}
+     if(item.missingStock){missing.push({item,reason:'Сегодняшний остаток не указан'});continue;}
+     const pool=selectPool(item);
+     if(!pool.length){
+       if(!state.acknowledgedMissing[item.id])questions.push({kind:'missing',item});
+       else missing.push({item,reason:'Не найдено в учебных предложениях'});
+       continue;
+     }
+     const groups=groupsForItem(item);
+     let eligible=pool;
+     if(groups.size>1){
+       let choice=state.choices[item.id];
+       if(!choice && item.cheap && item.category==='vodka'){const opts=[...groups.entries()].map(([k,v])=>({key:k,cost:getBestOffer(item,v)?.cost??Infinity})).sort((a,b)=>a.cost-b.cost);choice=opts[0]?.key;}
+       if(!choice || !groups.has(choice)){questions.push({kind:'choice',item,groups});continue;}
+       eligible=groups.get(choice);
+     }
+     const selected=getBestOffer(item,eligible);
+     if(!selected){
+       if(!state.acknowledgedMissing[item.id])questions.push({kind:'missing',item,reason:'Не найден подходящий формат продажи'});
+       else missing.push({item,reason:'Нет подходящей фасовки в учебных предложениях'});
+       continue;
+     }
+     if(selected.over&&!state.surplus[item.id]){questions.push({kind:'surplus',item,selected});continue;}
+     ready.push({item,...selected});
+   }
+   const suppliers=new Map();for(const r of ready){const k=r.o.supplier;if(!suppliers.has(k))suppliers.set(k,[]);suppliers.get(k).push(r);}
+   return {lines,ready,missing,questions,total:ready.reduce((s,r)=>s+r.cost,0),suppliers};
+ }
+ function editOneItem(id){
+   if(state.mode!=='list'){nav('work');return;}
+   const item=sourceLines().find(it=>it.id===id);state.editItemId=id;state.draftInput=item?.raw||'';persist();nav('review');
+ }
+ function editMarkup(item){
+   if(!item)return '';
+   return `<p class="eyebrow">Исправление одной позиции</p><h2>Как записать этот товар?</h2><p class="muted">Исправь только эту строку. Остальные товары и решения останутся на месте.</p><form id="edit-line-form" class="card stack"><label class="field-label" for="edit-line">Товар и количество</label><input class="field" id="edit-line" autocomplete="off" value="${escape(state.draftInput??item.raw)}"><button class="btn btn-primary btn-wide" type="submit">Сохранить и продолжить →</button><button class="btn btn-outline btn-wide" type="button" data-action="cancel-edit">Отмена</button></form>`;
+ }
+ function updateOneLine(id,newLine){
+   if(state.mode!=='list')return;
+   const original=state.text.split(/([\n;])/),value=newLine.trim();
+   let pos=0;
+   for(let i=0;i<original.length;i+=2){
+     if(!original[i].trim())continue;
+     if(pos++===id){original[i]=value;break;}
+   }
+   state.text=original.join('');
+   delete state.choices[id];delete state.surplus[id];delete state.excluded[id];delete state.acknowledgedMissing[id];
+   state.editItemId=null;state.draftInput='';persist();nav('review');
+ }
+ function clearOne(id){delete state.choices[id];delete state.surplus[id];delete state.excluded[id];delete state.acknowledgedMissing[id];}
+
+ function viewHome(){
+   const hasText=state.text.trim().length>0,hasHistory=state.history.length>0;
+   return `<section class="hero"><p class="eyebrow">Твой помощник по закупкам</p><h1>Закупка без<br>лишней работы.</h1><p class="lead">Напиши, что нужно бару. Поможем собрать понятную заявку и сообщения поставщикам.</p></section>
+   <div class="card stack"><h3>${hasText?'Продолжить начатое':'Новая закупка'}</h3><p class="muted">${hasText?'Черновик сохранился. Продолжай с того же места.':'Вставь список товаров или посчитай потребность по остаткам.'}</p>${btn(hasText?'Продолжить закупку →':'Собрать закупку →','work','btn-primary btn-wide')}${hasHistory?btn('Повторить предыдущую','repeat','btn-outline btn-wide'):''}</div>
+   <div class="card stack"><div class="row"><div><h3>Учебные прайсы</h3><p class="tiny">${state.demoSources?'2 подключено · вымышленные цены':'Не подключены'}</p></div><span class="pill">Демо</span></div><p class="muted">Для этого прототипа используется небольшой заранее подготовленный каталог. Твои Excel-файлы пока не обрабатываются.</p>${btn(state.demoSources?'Посмотреть учебные предложения':'Подключить учебные прайсы','sources','btn-secondary')}</div>
+   <p class="tiny">Никакой регистрации. Данные черновика сохраняются только в этом браузере.</p>`;
+ }
+ function viewSources(){return `${stepBack('home')}<p class="eyebrow">Подключение прайсов</p><h2>Источники предложений</h2><p class="muted">В этой Alpha мы проверяем удобство работы с заказом. Импорт настоящих Excel появится после UX-проверок.</p><div class="card stack">${D.sources.map(s=>`<div class="row"><div><h3>${escape(s.name)}</h3><p class="tiny">${s.count} учебных предложений · цены вымышленные</p></div><span class="pill">Демо</span></div>`).join('<div class="separate"></div>')}${btn(state.demoSources?'Учебные прайсы подключены ✓':'Подключить учебные прайсы','enableSources',state.demoSources?'btn-secondary btn-wide':'btn-primary btn-wide',state.demoSources?'disabled':'')}</div>${btn('Вернуться к закупке','work','btn-outline btn-wide')}`;}
+ function viewWork(){const has=state.mode==='list',lineCount=sourceLines().length;
+   return `${stepBack('home')}<div class="helper-steps"><b>1. Потребность</b><span>→</span><span>2. Подбор</span><span>→</span><span>3. Сообщения</span></div><p class="eyebrow">Новая закупка</p><h2>Что нужно заказать?</h2><p class="muted">Не нужно заполнять каталог заранее. Просто опиши свою задачу.</p>
+    <div class="card"><div class="chiprow"><button class="chip" data-action="mode-list" aria-pressed="${has}">${has?'● ':''}Списком</button><button class="chip" data-action="mode-stock" aria-pressed="${!has}">${!has?'● ':''}По остаткам</button></div><div class="space"></div>${has?renderTextInput():renderStockInput()}</div>
+    <div class="card card-flat"><div class="row"><div><strong>${state.demoSources?'Учебные прайсы подключены':'Для подбора нужны прайсы'}</strong><p class="tiny">${state.demoSources?'2 поставщика · учебные данные':'Сначала можно написать список — он не пропадёт'}</p></div><span class="pill ${state.demoSources?'':'pill-warn'}">${state.demoSources?'Готово':'Нет источника'}</span></div><button class="link-btn" data-action="sources">${state.demoSources?'Посмотреть источники':'Подключить учебные прайсы'} →</button></div>
+    ${btn('Подобрать предложения →','analyze','btn-primary btn-wide',lineCount?'':'disabled')}`;
+ }
+ function renderTextInput(){return `<label for="request" class="field-label">Товары и количества</label><textarea id="request" name="request" placeholder="Водка для коктейлей — 10 л&#10;Шато Тамань белое — 6 бут.&#10;Сироп ванильный — 3 л">${escape(state.text)}</textarea><p class="tiny">Один товар на строку. В этой Alpha распознаётся ограниченный набор учебных товаров.</p><div class="step-title">Попробовать пример</div><div class="chiprow">${D.examples.map((it,i)=>`<button type="button" class="chip" data-example="${i}">${escape(it.title)}</button>`).join('')}</div>`;}
+ function renderStockInput(){return `<p class="muted">Укажи сегодняшние остатки. Ничего не подставляем автоматически из прошлой закупки.</p><div class="inventory-top"><span>Товар и цель</span><span>Сейчас</span><span>В пути</span></div>${D.inventory.map((it,i)=>{const rec=state.inventory[it.id]||{};return `<div class="inventory-row"><div><div class="offer-title">${escape(it.label)}</div><div class="tiny">Цель: ${qty(it.target)} ${it.unit}</div></div><input class="field" inputmode="decimal" aria-label="Остаток: ${escape(it.label)}" placeholder="—" data-stock="${it.id}" data-type="current" value="${escape(rec.current??'')}"><input class="field" inputmode="decimal" aria-label="В пути: ${escape(it.label)}" placeholder="0" data-stock="${it.id}" data-type="inTransit" value="${escape(rec.inTransit??'')}"></div>`;}).join('')}<p class="tiny">Пустой остаток означает «неизвестно», а не ноль. Товар в пути указывается только когда заказ действительно подтверждён.</p>`;}
+ function showQuestion(q,index,total){
+   const info=`<div class="question-progress"><div class="row"><span class="eyebrow">РАЗБИРАЕМ ЗАКУПКУ</span><strong>${index} из ${total}</strong></div><div class="progress"><div style="width:${Math.max(8,Math.min(100,index/total*100))}%"></div></div></div>`;
+   const source=`<div class="note">Ты написал: <strong>${escape(q.item.raw)}</strong></div>`;
+   if(q.kind==='unit'){
+     const n=qty(q.item.n);
+     const units=q.item.category==='napkins' ? [
+       ['шт.',`${n} ${plural(q.item.n,'штука','штуки','штук')}`],
+       ['уп.',`${n} ${plural(q.item.n,'упаковка','упаковки','упаковок')}`]
+     ] : [
+       ['бут.',`${n} ${plural(q.item.n,'бутылка','бутылки','бутылок')}`],
+       ['л',`${n} ${plural(q.item.n,'литр','литра','литров')}`],
+       ['уп.',`${n} ${plural(q.item.n,'упаковка','упаковки','упаковок')}`]
+     ];
+     return `${info}<h2>В чём измеряем ${escape(q.item.name)}?</h2><p class="muted">Указано количество ${n}, но не указана единица. Выбери одним нажатием.</p>${source}<div class="card stack gap-sm">${units.map(([unit,text])=>`<button class="offer offer-choice" data-fix-unit="${q.item.id}" data-unit="${unit}"><strong>${text}</strong><span class="choice-icon">→</span></button>`).join('')}</div>${btn('Исправить название или количество','edit-'+q.item.id,'btn-quiet btn-wide')}`;
+   }
+   if(q.kind==='quantity'){
+     return `${info}<h2>Сколько нужно ${escape(q.item.name)}?</h2><p class="muted">Не хватает понятного количества. Укажи число и единицу один раз.</p>${source}<form class="card stack" id="amount-form" data-id="${q.item.id}"><label class="field-label" for="amount-value">Количество</label><input id="amount-value" class="field" inputmode="decimal" required min="0.01" type="number" step="any" placeholder="Например, 6"><label class="field-label" for="amount-unit">Единица</label><select id="amount-unit"><option value="бут.">Бутылки</option><option value="л">Литры</option><option value="шт.">Штуки</option><option value="уп.">Упаковки</option></select><button class="btn btn-primary btn-wide" type="submit">Продолжить →</button></form>${btn('Изменить исходную строку','edit-'+q.item.id,'btn-quiet btn-wide')}`;
+   }
+   if(q.kind==='missing'){
+     return `${info}<h2>Этот товар пока не найден</h2><p class="muted">В небольших учебных прайсах Alpha подходящего предложения нет. Это не означает, что товара нет у реальных поставщиков.</p>${source}<div class="card stack"><div class="note">${escape(q.reason||'Товара нет среди учебных предложений. Мы сохраним его в списке без цены.')}</div>${btn('Исправить только этот товар','edit-'+q.item.id,'btn-primary btn-wide')}${btn('Оставить в списке без предложения →','ack-'+q.item.id,'btn-outline btn-wide')}</div>${btn('Пропустить все товары без предложения','ack-all','btn-quiet btn-wide')}`;
+   }
+   if(q.kind==='choice'){
+     const options=[...q.groups.entries()].map(([key,items])=>{const best=getBestOffer(q.item,items),o=best?.o||items[0];return {key,title:o.name,price:best?.cost??null,note:`${getSupplier(o.supplier)} · ${best?rub(best.cost):'Нужна единица'}`};}).sort((a,b)=>(a.price??Infinity)-(b.price??Infinity));
+     let title=q.item.category==='whitewine'?'Какое белое вино берём?':q.item.category==='chateau'?'Какое вино нужно?':q.item.category==='gold'?'Какой объём бутылки?':q.item.category==='vodka'?'Какую водку выбрать?':'Уточни товар';
+     const lead=q.item.category==='whitewine'?`Есть белые вина в бюджете ${q.item.priceMin}–${q.item.priceMax} ₽ за бутылку. Выбери стиль.`:q.item.category==='vodka'?'Нашёл несколько марок. Выбери подходящую.':q.item.category==='gold'?'Нашёл бутылки разных объёмов. Это влияет на заказ.':'Нашёл несколько разновидностей. Выбери нужную.';
+     return `${info}<h2>${title}</h2><p class="muted">${escape(lead)}</p>${source}<div class="card stack">${options.map(op=>`<button class="offer offer-choice" data-pick="${q.item.id}" data-key="${escape(op.key)}"><span><span class="offer-title">${escape(op.title)}</span><span class="offer-meta">${escape(op.note)} · цены учебные</span></span><span class="choice-icon">→</span></button>`).join('')}</div>${btn('Исправить эту позицию','edit-'+q.item.id,'btn-quiet btn-wide')}${btn('Оставить без предложения','exclude-'+q.item.id,'btn-outline btn-wide')}`;
+   }
+   const {item,selected}=q,u=selected.o.unit==='bottle'?'бут.':'уп.';
+   return `${info}<h2>Нужно заказать больше, чем указано</h2><p class="muted">Поставщик продаёт этот товар минимальной партией.</p>${source}<div class="card stack"><h3>${escape(selected.o.name)}</h3><div class="row"><span class="muted">Твоя потребность</span><strong>${qty(item.n)} ${item.unit==='liter'?'л':item.unit==='bottle'?'бут.':item.unit==='piece'?'шт.':'уп.'}</strong></div><div class="row"><span class="muted">У поставщика</span><strong>${qty(selected.count)} ${u}</strong></div><div class="row"><span class="muted">Итог</span><span class="metric-small">${rub(selected.cost)}</span></div><p class="tiny">Учебные условия. Превышение не подтверждаем без тебя.</p>${btn(`Заказать ${qty(selected.count)} ${u}`,'accept-'+item.id,'btn-primary btn-wide')}${btn('Изменить эту позицию','edit-'+item.id,'btn-outline btn-wide')}</div>${btn('Не включать этот товар','exclude-'+item.id,'btn-quiet btn-wide')}`;
+ }
+
+ function viewReview(){const calc=scenario();
+   if(!state.demoSources) return `${stepBack('work')}<p class="eyebrow">Сначала источник</p><h2>Нужны предложения поставщиков</h2><p class="muted">Список сохранён. Чтобы проверить подбор на учебных данных, подключи демо-прайсы.</p>${btn('Подключить учебные прайсы','enableSources','btn-primary btn-wide')}`;
+   if(!calc.lines.length)return `${stepBack('work')}<h2>Заявка пока пуста</h2>${btn('Вернуться к списку','work','btn-primary btn-wide')}`;
+   if(state.editItemId!==null){const item=calc.lines.find(x=>x.id===state.editItemId);if(item)return `${stepBack('review')}${editMarkup(item)}`;state.editItemId=null;}
+   if(calc.questions.length){state.flowTotal=Math.max(state.flowTotal||0,calc.questions.length);const index=Math.max(1,state.flowTotal-calc.questions.length+1);return `${stepBack('work')}<div class="helper-steps"><span>1. Потребность</span><span>→</span><b>2. Уточнения</b><span>→</span><span>3. Результат</span></div>${showQuestion(calc.questions[0],index,state.flowTotal)}<p class="tiny">Ответ сразу сохраняется и открывает следующий вопрос. Вернуться к списку можно в любой момент.</p>`;}
+   return resultMarkup(calc);
+ }
+ function unitLabel(o,count){
+   if(o.unit==='pack')return `${qty(count)} уп. × ${qty(o.volume)} шт.`;
+   if(o.multiple>1&&count%o.multiple===0)return `${qty(count/o.multiple)} кор. × ${o.multiple} бут.`;
+   return `${qty(count)} бут.`;
+ }
+ function resultMarkup(calc){
+   const partial=calc.missing.length>0;
+   let sourceCount=calc.lines.filter(x=>!x.missingStock&&!x.invalid).length;
+   return `${stepBack('work')}<div class="helper-steps"><span>1. Потребность</span><span>→</span><span>2. Подбор</span><span>→</span><b>3. Результат</b></div><p class="eyebrow">${partial?'Частично готово':'Готово к отправке'}</p><h2>${partial?'Часть позиций требует внимания':'Закупка готова'}</h2><p class="muted">Предварительный расчёт только по подключённым учебным предложениям.</p>
+   <div class="card"><p class="label-quiet">Общая стоимость</p><div class="metric">${rub(calc.total)}</div><p class="tiny">${calc.ready.length} ${plural(calc.ready.length,'позиция','позиции','позиций')} · ${calc.suppliers.size} ${plural(calc.suppliers.size,'поставщик','поставщика','поставщиков')}${partial?` · ${calc.missing.length} без предложения`:''}</p>${calc.ready.length?'':'<div class="note warm">Пока нет позиций, которые можно включить в заказ.</div>'}</div>
+   ${partial?`<div class="card warm"><h3>Не включено в сообщения</h3>${calc.missing.map(x=>`<div class="product-line"><div class="name">${escape(x.item.raw)}</div><div class="detail">${escape(x.reason)}</div><button class="link-btn" data-action="edit-${x.item.id}">Исправить эту позицию →</button></div>`).join('')}<div class="space"></div>${btn('Изменить список','work','btn-outline btn-wide')}</div>`:''}
+   ${[...calc.suppliers].map(([id,items])=>{const total=items.reduce((s,x)=>s+x.cost,0);return `<div class="card"><div class="row"><div><h3>${escape(getSupplier(id))}</h3><p class="tiny">${items.length} ${plural(items.length,'позиция','позиции','позиций')} · вымышленные цены</p></div><div class="metric-small">${rub(total)}</div></div><details><summary class="details-toggle">Посмотреть товары и расчёт ↓</summary>${items.map(x=>`<div class="product-line"><div class="row row-top"><div class="name">${escape(x.o.name)}</div><strong>${rub(x.cost)}</strong></div><div class="detail">К заказу: ${unitLabel(x.o,x.count)} · ${rub(x.o.price)} за ${x.o.unit==='bottle'?'бутылку':'упаковку'}</div>${x.over?`<div class="detail">Потребность: ${qty(x.item.n)} ${x.item.unit==='liter'?'л':x.item.unit==='bottle'?'бут.':'шт.'} · покупка с запасом подтверждена</div>`:''}</div>`).join('')}</details></div>`;}).join('')}
+   ${calc.ready.length?`${deliveryForm()}<div class="card"><h3>Сообщения поставщикам</h3><p class="tiny">Без технических расчётов и цен по умолчанию. Сообщения не отправляются автоматически.</p><div class="space"></div>${[...calc.suppliers].map(([id,items])=>`<div class="stack"><div class="row"><strong>${escape(getSupplier(id))}</strong><span class="pill">Готово к копированию</span></div><div class="message-text" id="msg-${id}">${escape(messageForSupplier(id,items))}</div>${btn('Скопировать сообщение','copy-'+id,'btn-primary btn-wide')}</div><div class="space"></div>`).join('')}</div>${btn('Сохранить как прошлую закупку','saveHistory','btn-outline btn-wide')}`:''}
+   ${btn('Изменить товары','work','btn-quiet btn-wide')}`;
+ }
+ function deliveryForm(){const d=state.delivery;return `<div class="card stack"><div><h3>Доставка</h3><p class="tiny">Заполни только то, что нужно указать поставщику. Эти значения сохранятся для следующей закупки.</p></div><div class="grid-2"><div><label class="field-label" for="delivery-date">Дата</label><input type="date" id="delivery-date" class="field" value="${escape(d.date)}"></div><div><label class="field-label" for="delivery-window">Время</label><input id="delivery-window" class="field" placeholder="15:00–19:00" value="${escape(d.window)}"></div></div><div><label class="field-label" for="delivery-address">Адрес</label><input id="delivery-address" class="field" placeholder="Улица, дом, заведение" value="${escape(d.address)}"></div><div><label class="field-label" for="delivery-comment">Комментарий</label><input id="delivery-comment" class="field" placeholder="Например: звонить при подъезде" value="${escape(d.comment)}"></div><label class="checkboxline"><input type="checkbox" id="include-prices" ${d.includePrices?'checked':''}>Указать закупочные цены в сообщениях</label><p class="tiny">Менять доставку можно прямо здесь. Сообщения обновятся автоматически.</p></div>`;}
+ function messageForSupplier(id,items){const d=state.delivery;const lines=['Привет! Заказ для бара:',''];items.forEach((x,i)=>{
+   const cost=d.includePrices?` · ${rub(x.cost)}`:'';
+   lines.push(`${i+1}. ${x.o.name} — ${unitLabel(x.o,x.count)}${cost}`);
+ });
+   if(d.date||d.window||d.address||d.comment)lines.push('');
+   if(d.date){const parts=d.date.split('-');lines.push(`Дата доставки: ${parts.length===3?`${parts[2]}.${parts[1]}.${parts[0]}`:d.date}`);}
+   if(d.window)lines.push(`Время доставки: ${d.window}`);
+   if(d.address)lines.push(`Адрес: ${d.address}`);
+   if(d.comment)lines.push(d.comment);
+   lines.push('','Спасибо!');return lines.join('\n');
+ }
+ function viewHistory(){return `${stepBack('home')}<p class="eyebrow">История</p><h2>Закупки и повтор</h2><p class="muted">Здесь сохраняется утверждённый тобой шаблон. Копирование сообщения не означает, что поставщик его получил.</p>${state.history.length?`<div class="card">${state.history.map((h,i)=>`<div class="history-item"><div class="row"><div><strong>${escape(h.label)}</strong><p class="tiny">${escape(h.savedAt)} · ${h.mode==='stock'?'По остаткам':'Списком'}</p></div><span class="pill">Учебная</span></div><button class="link-btn" data-action="repeat-${i}">Повторить закупку →</button></div>`).join('')}</div>`:'<div class="card"><div class="empty-icon">↻</div><h3>Пока нет сохранённых закупок</h3><p class="muted">После первого учебного расчёта можно сохранить его как основу для повторения.</p></div>'}${btn('Новая закупка','new','btn-primary btn-wide')}`;}
+
+ // Experimental companion layer. It reads application state but never selects offers or changes totals.
+ let backIsOn=(new URLSearchParams(location.search).get('back')||'on')!=='off';
+ const PIXEL_BACK={
+   idle:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACQUlEQVR4nO2Xv2sTYRjHPy3CBUvj1gQdgo09h4JyIPQSLGK3Dg6C4hKoYwfBQdFBcSg6KHbzD3DopuDgYKdKsTQpCEEhSkMdbrAk3WwJ9EB6Ds29XnLvvXkvF8niFw7ee97nfZ7v8+N97z34jyFjREfp3BXb68f4znqlp/0TcQzuNxsd7813twHIXH8tZOlMNo5JRlWTpm15pm1Jo/edd4+71yci0I10JiueqcVVIZ9aXBXyuFDWyI/gyDAidbYe5iPnCkvfAKhXqpF+lD2gcqwDf73fxLKmjNWEMsw8/5Fofc9tYtqW50fy5cUdbcMXH7wCYNR1lSWI1YT/AsoS7L1f9gCKL98ImR+ZLBuyuY1HJaDkAUxcuzf4HoiCT6K111TqKXvAzwDA2ESmLyJBAokyIIskWBqAzfs3Y5EDzV1wXMf+cPnZSryDqLW18jftMyWtr2UShBwECVh3lwfqTJYJZQ98uGEBMP+2ymHBBODjmTEAxs9PS9ccbNe4+rMFQKpcFzays3MAHnRmVkkgOztH49OaeHedBkUHNot5DrZrketc5/jekFIZ1yEQBT9CAGfpsRjnnjwN6bYjj8TQj+KBEJBFrotQCWRbr9fVKliGuNDa56ZteYcFUzSXkZNfvSbzZ8X4+1qZU7v7HBmG8nas3YSpch33dFqMZdhty3+19XSgfdJF/RsEo9PR6YZ2Bk66v0Oyr5XPHYZ31isjF+xLsX5ilASqTk0YW7i1oJzX0bNy06FMKEsgc5AEMgJDxx/qgsF52AYskAAAAABJRU5ErkJggg==',
+   thinking:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACWElEQVR4nO2Xv2sTYRjHP22FBINxEEzQIWjsORSUA6GXYBG76SZYHAzUsYPgYNFBcSg6VOzmH+BQJwUHQTtVipKkIAaFKA11yGBJCw62BHogPYfkXpPLe2/eN6lk8QsH7z3v8+P7vM/zvvce/MeAMaSjdOqC4/XifH2l2NX/AROH25u1tvfNVzcASFx5JmTxRNLEJcOqScuxPcuxpdn7wYPjoH1fBIKIJ5LiGZ1ZEvLRmSUhN4WyRn4Ge5FIqM7q3XToXGbuKwCVYik0jrIHVIF14Nv7TSxrSqMmlGF8/ntf9l23ieXYnp/J58c3tR2fvfMUgGHXFSX4+ea6B3Dk8nMR16gJ/wWUJdh6veABZJ+8EDI/M9lqyOY+3MsBuWbmtztWXFmCIAGTEviob22K8cjIJxpE/pZAqwnzs1PEjiaMgwfRGtiIALRn4qO1NPnZqZ5Iae2CRh17w/lHi2YHUX11UZzfsfGc1teyH3QEaCVg31rY12CylVD2wNurNgCXXpbYzVgAvDseA+DQ6TGpzc5amYs/6gBECxXhIzkxCeBB+8oqCSQnJqm9XxbvbrVGtgr5bJqdtXKonVtt3BuiKuc6BMLgZwhQnbsvxqkHDzt0m5mHYuBH8b4QkGWui44SyLZet6tVaxlMobXPLcf2djOWaK5ISn71Opk+Icbflgsc3thmLxJR3o61mzBaqOAei4uxDBtN+a+mng60T7qwf4PW7HR0gtBegYPu7w7Zl+LHNsfrK8WhM845o58YJYFStSycTV+bVs7r6NmpMbMLiSxAP5ARGDj+AM7zx65+Vr1uAAAAAElFTkSuQmCC',
+   care:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACMklEQVR4nO1Xv0sbURz/KMKFBtPNhDoEjV4HQTkoeAkV0c3BoaC4CHZ0KDgodlAcxA6Kbv4BDtkUOjjopIiSRBBChSgGO9xQSdxUAh6I18HcI7l79/J9OSWLHzh49/396717B7yjwWiiCHUN6lY9xq+PMjXtt8gYvC8Wqt6Lv78DAMLfthgtFI7ImESziKnqmqXqGjd727lz7dT3FYAToXCEPd3T+4zePb3P6LIQ9sjO4FlRPGVOf8Y8efHlCwBAPpP19COcAZFjCmx9e4h5Qyk1hDz0r/71pV9zm6i6ZtmZ/Fn7QTbcN78JAGg2TWELpIbwLSCswO3uhgUAifVtLr+yInbGTqTmxtm6bXTW3wyIWuDFK90WhTZJAaTmxhFsC1NEpUGuQK1M6gVpF5wsTNbt4OuvpNxBVDpNsvM72D9J+lr6gctBZQDazMarOuNVQjgDe2MaAGBkJ4vHuAoAOGwPAgBaP/dwdR6uchj6VwIABNJ5ZiMyMAwAFlBdWWEAkYFhFI4P2LtpFJAwgFQihoernKeeabzcGwIi45QAvGBnCADG8iJbR5dWXLLlzD3R8KP4VQLgZU6FqwW8rVfralXZBlmQ9rmqa9ZjXGXDpUT5V6/OWAdbXx6k8fHmHs+KIrwdk4cwkM7D/BRiax5uyvS7shwF5JPO69+gMjuKjBPkCnwwn1y088xZleHro0xTr/5F6idGGEDWyDFjUxNTQj5FTov2uCohbAHPgR/wAmg4/gMMArag8c1y9AAAAABJRU5ErkJggg==',
+   success:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACfElEQVR4nO1Wz2sTQRT+NggbDMaDkAQ9BE27IgVlQegmtBR7U/AgWjxYrMceBA8WPSgSih4Ue/MPEKknFQ+C9lQplmQLQlCIoaEe9mBJAh5sCXRBdjyYGfbHzGS2UXvxg5DZN2/e937N7gP+Y4+hqSgNTVhkN8Y3Vuy+9vfFMbjVbgWe26+vAQCyF54yWTqbi2MSCdmmYZnEsExu9JQ8vA6fH8iBMNLZHPsNzy4x+fDsEpPL8P3tlYhD0hrRCDxdF+qs3S4I94rzXwAATbum+ckPnXvOeKUZ8HRdSt4P9PzQhEVGH36NkAOcDJBGmWgnyhqw++4XgXcrAgLSKDNC6oRhmYRm4dOj68pkp249AQAkXBdNuyYsdaAElJT+/wtIiTpvFggAlB6/4O77M0IjDqMyN8XWmfM3I3yxXkSyEoj2up221KaSA5W5KaQyWRXV2FDOgD8Sr+Nh7Nkrrt7q1YsAgERG7R3Xt9kMyySrd6a5e+He8NebYuzBovQWRDLQXVtkVzE1Oi11kEcYFxECvwPmjYWBCfzgZULaA+8umQCAsy9r2CkaAID3R1IAgAPHR7hnttfrOPOtCwBIVpvMRm58EgAIEMys1IHc+CRaH5bZs+u0UHKASqmA7fW68Jzr/J4bkjLjKg6IQCMEAGf+Llvn792P6PYiFyLWPPA38Ecc4EWuikgJeFev32jlL0NcKH31DMskO0WDNZee549exwpH2bqxXMXBzS14ui6djpWbMFltwj2cZmseNnvyHz09FSh/90XTkT86FZ0wlDOw3/0ZkX22PwYMb6zY2knrdKwxTupAzakzYzOXZ6T7KnpmfkQ+E6oQDAKeA3uOX5xz1jJQwgSSAAAAAElFTkSuQmCC'
+ };
+ function backLine(){
+   if(state.view==='home')return {mood:'idle',tag:'ТВОЙ НАПАРНИК',title:'Ну что, пополним бар?',text:'Кидай список. Цены и коробки проверю сам, а где без тебя никак — спрошу.'};
+   if(state.view==='sources')return {mood:'thinking',tag:'ГОТОВЛЮСЬ К РАБОТЕ',title:'Откуда берём цены?',text:'Здесь только учебные предложения. Настоящие прайсы подключим после UX-тестов.'};
+   if(state.view==='work'){
+     if(state.mode==='stock')return {mood:'thinking',tag:'ПРОВЕРКА ЗАПАСОВ',title:'Посчитаем, что закончилось',text:'Введи сегодняшние остатки. Что уже в пути, тоже учтём — но не будем выдавать старые остатки за новые.'};
+     if(!state.text.trim())return {mood:'idle',tag:'НАЧИНАЕМ',title:'Кидай список, разберёмся',text:'Можно как обычно: «Водка 10 л» или «Белое вино до 800 ₽ — 6 бутылок».'};
+     if(!state.demoSources)return {mood:'thinking',tag:'СПИСОК НА МЕСТЕ',title:'Нужны предложения поставщиков',text:'Я сохранил товары. Подключи учебные прайсы — продолжим.'};
+     return {mood:'thinking',tag:'ВСЁ НА МЕСТЕ',title:'Можем собирать заказ',text:'Если встречу неоднозначный товар, покажу пару вариантов. Переписывать список не придётся.'};
+   }
+   if(state.view==='history')return {mood:'thinking',tag:'ПОСТОЯННЫЕ ГОСТИ',title:'Повторим знакомое',text:'Товары вспомним, а сегодняшние остатки и новые цены проверим отдельно.'};
+   if(state.view==='review'){
+     if(!state.demoSources)return {mood:'thinking',tag:'НУЖЕН ПРАЙС',title:'Без цен не посчитать',text:'Твой список сохранён. Подключи учебные прайсы.'};
+     if(state.editItemId!==null)return {mood:'thinking',tag:'ТОЧЕЧНАЯ ПРАВКА',title:'Поправим только эту строку',text:'Вводи как удобно. Остальные товары и ответы я не трону.'};
+     const calc=scenario(),q=calc.questions[0];
+     if(q){
+       if(q.kind==='unit')return {mood:'thinking',tag:'ОДИН МАЛЕНЬКИЙ ВОПРОС',title:'В чём измеряем?',text:`У ${q.item.name} есть количество, но нет единицы. Выбери одной кнопкой.`};
+       if(q.kind==='quantity')return {mood:'thinking',tag:'НУЖНА ОДНА ДЕТАЛЬ',title:'Сколько берём?',text:'Подскажи число и единицу. Всё остальное останется как было.'};
+       if(q.kind==='missing')return {mood:'care',tag:'НЕ НАШЁЛ В ДЕМО-ПРАЙСАХ',title:'Этот товар пока без цены',text:`По «${q.item.name}» предложения нет. Не стану придумывать замену — можно сохранить в списке или поправить строку.`};
+       if(q.kind==='choice'){
+         if(q.item.category==='whitewine')return {mood:'thinking',tag:'ЕСТЬ ИЗ ЧЕГО ВЫБРАТЬ',title:'Нашёл белое в твоём бюджете',text:`Вижу варианты за ${q.item.priceMin}–${q.item.priceMax} ₽ за бутылку. Какое вино возьмём?`};
+         if(q.item.category==='vodka')return {mood:'thinking',tag:'ВЫБИРАЕМ НАПОЛНЕНИЕ',title:'Какую водку берём?',text:'Есть несколько марок. Покажу цену всего заказа — выбирай одним нажатием.'};
+         if(q.item.category==='gold')return {mood:'thinking',tag:'ОБЪЁМ ВЛИЯЕТ НА ЗАКАЗ',title:'Какая бутылка нужна?',text:'Нашёл разные фасовки. Давай выберем точную.'};
+         return {mood:'thinking',tag:'ЕСТЬ ВАРИАНТЫ',title:'Какой вариант твой?',text:'Нашёл разные разновидности. Выбери нужную, я сохраню решение.'};
+       }
+       if(q.kind==='surplus')return {mood:'care',tag:'ВАЖНОЕ УТОЧНЕНИЕ',title:'Поставщик требует больше',text:'Партия больше твоего запроса. Покажу количество и цену, а решение — за тобой.'};
+     }
+     if(calc.missing.length&&!calc.ready.length)return {mood:'care',tag:'ПОКА НЕ СОБРАЛИ',title:'Товары сохранил, цены не нашёл',text:'Не буду выдавать неполную закупку за готовую. Исправим позиции, когда появятся предложения.'};
+     if(calc.missing.length)return {mood:'success',tag:'ЧАСТЬ ЗАКУПКИ ГОТОВА',title:'Есть что отправить!',text:`Собрал ${calc.ready.length} ${plural(calc.ready.length,'позицию','позиции','позиций')}. Остальное сохранил отдельно, ничего не потерял.`};
+     return {mood:'success',tag:'ЗАКУПКА СОБРАНА',title:'Готово, красавчик!',text:'Позиции и суммы посчитаны. Осталось проверить и скопировать сообщения поставщикам.'};
+   }
+   return {mood:'idle',tag:'НА СВЯЗИ',title:'Я Бэк',text:'Здесь, когда понадобится помощь.'};
+ }
+ function drawBack(){
+   const app=$('app');
+   app.classList.toggle('with-back',backIsOn);
+   $('variant-off').setAttribute('aria-pressed',String(!backIsOn));
+   $('variant-on').setAttribute('aria-pressed',String(backIsOn));
+   if(!backIsOn)return;
+   const {mood,text,title,tag}=backLine();
+   const reviewQuestion=state.view==='review' && !!app.querySelector('.question-progress');
+   const html=`<aside class="back-message back-message-${mood} ${reviewQuestion?'back-question-host':''}" aria-label="Бэк, цифровой барбэк">
+      <div class="back-sprite-wrap"><img class="back-sprite" src="${PIXEL_BACK[mood]}" width="104" height="104" alt="Бэк — пиксельный помощник"></div>
+      <div class="back-dialog"><div class="back-tag"><span class="back-dot"></span>${escape(tag)}</div><div class="back-name">Бэк <span>· цифровой барбэк</span></div><h3 class="back-heading">${escape(title)}</h3><p>${escape(text)}</p></div>
+      ${mood==='success'?'<div class="back-confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>':''}
+    </aside>`;
+   const progress=app.querySelector('.question-progress');
+   if(progress)progress.insertAdjacentHTML('afterend',html);
+   else{const backlink=app.querySelector('.back');if(backlink)backlink.insertAdjacentHTML('afterend',html);else app.insertAdjacentHTML('afterbegin',html);}
+ }
+ let rewardTimer=null;
+ function backReward(message,celebratory=true){
+   if(!backIsOn)return;
+   const old=$('back-reward');if(old)old.remove();clearTimeout(rewardTimer);
+   const el=document.createElement('div');el.id='back-reward';el.className='back-reward'+(celebratory?' back-reward-happy':'');el.setAttribute('role','status');
+   const sticker=document.createElement('span');sticker.className='reward-sticker';sticker.textContent=celebratory?'✦':'✓';
+   const copy=document.createElement('span');copy.textContent=message;
+   el.append(sticker,copy);document.body.appendChild(el);
+   rewardTimer=setTimeout(()=>el.remove(),2300);
+ }
+ function render(){const views={home:viewHome,work:viewWork,sources:viewSources,review:viewReview,history:viewHistory};$('app').innerHTML=(views[state.view]||viewHome)();drawBack();document.title=`БарЗаявка 2.0 · ${({home:'Главная',work:'Закупка',sources:'Прайсы',review:'Результат',history:'История'})[state.view]||'UX Alpha'}`;}
+ function resetForRun(){state.choices={};state.surplus={};state.excluded={};state.acknowledgedMissing={};state.flowTotal=0;state.editItemId=null;state.draftInput='';}
+ function analyze(){if(!state.demoSources){nav('review');return;}const lines=sourceLines();if(!lines.length){toast('Добавь хотя бы один товар');return;}resetForRun();nav('review');}
+ function repeat(index=0){const h=state.history[index];if(!h){toast('Пока нечего повторять');return;}state.mode=h.mode;state.text=h.text;
+   // Old inventory measurements are never copied as today's stock.
+   state.inventory={};resetForRun();nav('work');toast('Товары восстановлены. Проверь сегодняшнюю потребность.');}
+ function saveHistory(){const calc=scenario();const entry={label:calc.ready.length?`${calc.ready[0].item.name}${calc.ready.length>1?` и ещё ${calc.ready.length-1}`:''}`:'Закупка',savedAt:new Date().toLocaleString('ru-RU',{dateStyle:'short',timeStyle:'short'}),mode:state.mode,text:state.text};state.history.unshift(entry);state.history=state.history.slice(0,12);persist();toast('Сохранено. Можно повторить из истории.');}
+ function updateMessagePreview(){if(state.view!=='review')return;const calc=scenario();for(const [id,items] of calc.suppliers){const el=$(`msg-${id}`);if(el)el.textContent=messageForSupplier(id,items);}}
+ const toastCopy=async id=>{const calc=scenario(),items=calc.suppliers.get(id);if(!items)return;const value=messageForSupplier(id,items);
+  try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(value);}else{const el=document.createElement('textarea');el.value=value;el.style.position='fixed';el.style.opacity='0';document.body.appendChild(el);el.select();const ok=document.execCommand('copy');el.remove();if(!ok)throw new Error('not copied');}toast('Сообщение скопировано. Оно ещё не отправлено.');}catch(e){toast('Не удалось скопировать. Выдели текст сообщения вручную.');}
+ };
+ document.addEventListener('click',e=>{
+   const variant=e.target.closest('[data-variant]');
+   if(variant){
+     // Любая незавершённая правка остаётся в черновике при смене интерфейса.
+     if(state.editItemId!==null && $('edit-line')){state.draftInput=$('edit-line').value;persist();}
+     backIsOn=variant.dataset.variant==='on';
+     const url=new URL(location.href);url.searchParams.set('back',backIsOn?'on':'off');history.replaceState(null,'',url);
+     render();return;
+   }
+   if(e.target.closest('#brand-link')){e.preventDefault();nav('home');return;}
+   if(e.target.closest('#menu-toggle')){const menu=$('side-menu');menu.classList.toggle('hidden');$('menu-toggle').setAttribute('aria-expanded',String(!menu.classList.contains('hidden')));return;}
+   const example=e.target.closest('[data-example]');if(example){const sample=D.examples[Number(example.dataset.example)];state.text=sample.value;persist();render();return;}
+   const fix=e.target.closest('[data-fix-unit]');if(fix){const id=Number(fix.dataset.fixUnit),item=sourceLines().find(it=>it.id===id);if(item){updateOneLine(id,`${item.name} — ${qty(item.n)} ${fix.dataset.unit}`);if(['absent','unknown'].includes(item.category)){state.acknowledgedMissing[id]=true;persist();nav('review');}backReward('Единицу запомнил. Дальше!');}return;}
+   const pick=e.target.closest('[data-pick]');if(pick){state.choices[Number(pick.dataset.pick)]=pick.dataset.key;persist();render();window.scrollTo(0,0);backReward('Отлично, с этим разобрались!');return;}
+   const action=e.target.closest('[data-action]')?.dataset.action;if(!action)return;
+   $('side-menu').classList.add('hidden');$('menu-toggle').setAttribute('aria-expanded','false');
+   if(['home','work','sources','history','review'].includes(action)){nav(action);return;}
+   if(action==='new'){state.mode='list';state.text='';state.inventory={};resetForRun();nav('work');return;}
+   if(action==='enableSources'){state.demoSources=true;persist();nav(state.text.trim()||state.mode==='stock'?'work':'sources');toast('Учебные прайсы подключены');return;}
+   if(action==='mode-list'||action==='mode-stock'){state.mode=action==='mode-list'?'list':'stock';persist();render();return;}
+   if(action==='analyze'){analyze();return;}
+   if(action==='cancel-edit'){state.editItemId=null;state.draftInput='';nav('review');return;}
+   if(action.startsWith('edit-')){editOneItem(Number(action.slice(5)));return;}
+   if(action==='ack-all'){const calc=scenario();calc.questions.filter(q=>q.kind==='missing').forEach(q=>state.acknowledgedMissing[q.item.id]=true);persist();nav('review');return;}
+   if(action.startsWith('ack-')){state.acknowledgedMissing[Number(action.slice(4))]=true;persist();nav('review');return;}
+   if(action==='saveHistory'){saveHistory();backReward('Закупка в истории — сохранил!');return;}
+   if(action==='repeat'){repeat();return;}
+   if(action.startsWith('repeat-')){repeat(Number(action.slice(7)));return;}
+   if(action.startsWith('accept-')){state.surplus[Number(action.slice(7))]=true;persist();render();window.scrollTo(0,0);backReward('Дополнительное количество подтверждено',false);return;}
+   if(action.startsWith('exclude-')){state.excluded[Number(action.slice(8))]=true;persist();render();window.scrollTo(0,0);return;}
+   if(action.startsWith('copy-')){toastCopy(action.slice(5));return;}
+   if(action==='reset'){if(window.confirm('Сбросить все учебные данные этого браузера?')){localStorage.removeItem(KEY);state=structuredClone(base);nav('home');toast('Учебный прототип сброшен');}return;}
+ });
+ document.addEventListener('submit',e=>{
+   if(e.target.id==='edit-line-form'){
+     e.preventDefault();const v=$('edit-line')?.value||'';if(!v.trim()){toast('Напиши товар и количество');return;}
+     updateOneLine(Number(state.editItemId),v);return;
+   }
+   if(e.target.id==='amount-form'){
+     e.preventDefault();const id=Number(e.target.dataset.id),item=sourceLines().find(it=>it.id===id),n=Number($('amount-value')?.value),unit=$('amount-unit')?.value;
+     if(!item||!Number.isFinite(n)||n<=0){toast('Количество должно быть больше нуля');return;}
+     updateOneLine(id,`${item.name} — ${qty(n)} ${unit}`);
+     if(['absent','unknown'].includes(item.category)){state.acknowledgedMissing[id]=true;persist();nav('review');}
+     return;
+   }
+ });
+ document.addEventListener('input',e=>{
+   if(e.target.id==='edit-line'){state.draftInput=e.target.value;persist();return;}
+   if(e.target.id==='request'){state.text=e.target.value;persist();const analyzeBtn=document.querySelector('[data-action="analyze"]');if(analyzeBtn)analyzeBtn.disabled=!state.text.trim();return;}
+   if(e.target.matches('[data-stock]')){const id=e.target.dataset.stock;state.inventory[id]??={};state.inventory[id][e.target.dataset.type]=e.target.value.replace(',','.');persist();return;}
+   const fields={'delivery-date':'date','delivery-window':'window','delivery-address':'address','delivery-comment':'comment'};
+   if(fields[e.target.id]){state.delivery[fields[e.target.id]]=e.target.value;persist();updateMessagePreview();return;}
+ });
+ document.addEventListener('change',e=>{if(e.target.id==='include-prices'){state.delivery.includePrices=e.target.checked;persist();updateMessagePreview();}});
+ render();
+})();
+
+</script>
+</body>
+</html>
